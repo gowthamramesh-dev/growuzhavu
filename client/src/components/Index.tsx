@@ -1,3 +1,4 @@
+import { Route, Routes } from "react-router-dom";
 import Home from "./Home.tsx";
 import Navbar from "./Navbar.tsx";
 import NavbarTop from "./NavbarTop.tsx";
@@ -12,8 +13,11 @@ const Index = () => (
         <div className="sticky top-0 h-1/12 z-10">
           <NavbarTop />
         </div>
-        <div className="">
+        <div className="h-full">
           <Home />
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
         </div>
       </div>
     </div>
