@@ -3,6 +3,7 @@ import Home from "./Home.tsx";
 import Navbar from "./Navbar.tsx";
 import NavbarTop from "./NavbarTop.tsx";
 import Dashboard from "./Dashboard.tsx";
+import Login from "./Login.tsx";
 
 const Index = () => (
   <>
@@ -17,7 +18,8 @@ const Index = () => (
         <div className="h-dvh">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/" element={<Dashboard />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </div>
       </div>

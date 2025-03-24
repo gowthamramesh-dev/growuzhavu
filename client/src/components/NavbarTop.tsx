@@ -20,11 +20,7 @@ const NavbarTop = () => {
             <button className="rounded-xs px-2 bg-yellow-500" type="button">
               Sign Up
             </button>
-            <img
-              className="border flex justify-center items-center text-3xl border-green-500 w-10 h-10 rounded-full "
-              src=""
-              alt=""
-            />
+            <div className="border flex justify-center items-center text-3xl border-green-500 w-10 h-10 rounded-full"></div>
             {/* <div className="">User</div> */}
             <div>
               <i className="bi bi-toggle-on h-full w-full text-3xl"></i>
