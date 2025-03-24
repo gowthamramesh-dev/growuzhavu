@@ -109,17 +109,17 @@ const Home = () => {
     <>
       <div className=" w-full bg-neutral-950 p-3">
         <div className="p-3">
-          <div className="">
+          <div className="border border-green-500 ">
             {/* Image */}
-            <img
-              className="w-full h-60 border-green-500  "
-              src={Banner}
-              alt=""
-            />
+            <img className="w-full h-60" src={Banner} alt="" />
+            {/* <div className="">
+              <h1 className="">GrowUzhavu</h1>
+              <h3 className="">Let's Connect With Market</h3>
+            </div> */}
           </div>
           <div className="p-5 flex justify-between">
             {/* Nav Buttons */}
-            <ul className="flex gap-2.5 **:text-lg">
+            <ul className="flex gap-2.5 **:text-lg **:border **:border-green-500">
               <li>
                 <button className="px-3 bg-slate-950  rounded-xs ">
                   For You
@@ -142,7 +142,7 @@ const Home = () => {
               <i className="bi bi-sort-down-alt hover:cursor-pointer"></i>
             </div>
           </div>
-          <div className="p-5 flex gap-5 flex-wrap w-full ">
+          <div className="p-5 grid grid-cols-3 gap-y-5 w-full ">
             {sampleData.map((data) => (
               <div className="w-80 h-96 border border-green-500" key={data.id}>
                 <div className="w-full h-full flex flex-col items-center bg-slate-950 p-3">
@@ -151,7 +151,7 @@ const Home = () => {
                     src={data.picture}
                     alt={data.name}
                   />
-                  <div className="w-20 h-20 rounded-full flex justify-center items-center absolute transform translate-x-24 translate-y-2 bg-white">
+                  <div className="w-20 h-20 rounded-full flex justify-center items-center absolute transform translate-x-24 translate-y-2 bg-white border border-green-500">
                     <i className="bi bi-person-fill text-gray-700 text-4xl"></i>
                   </div>
                   <div className="w-full h-2/6 flex justify-start">
@@ -161,8 +161,8 @@ const Home = () => {
                           {data.name}
                           <div className="font-light text-xs">{data.time}</div>
                         </div>
-                        <div className="font-normal text-yellow-400">
-                          ₹ {data.price}
+                        <div className="font-normal flex items-center gap-2 text-yellow-400">
+                          <div className="text-xs">per k/g </div>₹ {data.price}
                         </div>
                       </h1>
                       <div className="text-sm">{data.description}</div>
