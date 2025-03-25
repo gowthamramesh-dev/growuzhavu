@@ -107,8 +107,8 @@ const Home = () => {
   ];
   return (
     <>
-      <div className=" w-full bg-neutral-950 p-3">
-        <div className="p-3">
+      <div className=" w-full bg-neutral-950 p-1.5 lg:p-3">
+        <div className="lg:p-3">
           <div className="border border-green-500 ">
             {/* Image */}
             <img className="w-full h-60" src={Banner} alt="" />
@@ -117,9 +117,9 @@ const Home = () => {
               <h3 className="">Let's Connect With Market</h3>
             </div> */}
           </div>
-          <div className="p-5 flex justify-between">
+          <div className="p-2 lg:p-5 flex justify-between">
             {/* Nav Buttons */}
-            <ul className="flex gap-2.5 **:text-lg **:border **:border-green-500">
+            <ul className="flex gap-2.5 items-center **:text-sm lg:**:text-lg *:border **:border-green-500">
               <li>
                 <button className="px-3 bg-slate-950  rounded-xs ">
                   For You
@@ -134,7 +134,7 @@ const Home = () => {
                 </button>
               </li>
             </ul>
-            <div className="text-lg flex gap-3">
+            <div className="lg:text-lg flex gap-3">
               {/* sort variablity */}
 
               {/* Sort button */}
@@ -143,34 +143,42 @@ const Home = () => {
               <i className="bi bi-sort-down-alt hover:cursor-pointer"></i>
             </div>
           </div>
-          <div className="p-5 grid grid-cols-3 gap-y-5 w-full ">
+          <div
+            id="items"
+            className="p-5 grid grid-cols-2 lg:grid-cols-3 gap-y-5 w-full "
+          >
             {sampleData.map((data) => (
-              <div className="w-80 h-96 border border-green-500" key={data.id}>
-                <div className="w-full h-full flex flex-col items-center bg-slate-950 p-3">
+              <div
+                className=" w-64 lg:w-80 lg:h-96 border border-green-500"
+                key={data.id}
+              >
+                <div className="w-full h-full flex flex-col items-center bg-slate-950 p-1.5 lg:p-3">
                   <img
-                    className="w-full h-4/6 border border-green-500"
+                    className="w-full h-48 lg:h-4/6 border border-green-500"
                     src={data.picture}
                     alt={data.name}
                   />
-                  <div className="w-20 h-20 rounded-full flex justify-center items-center absolute transform translate-x-24 translate-y-2 bg-white border border-green-500">
+                  <div className="w-14 h-14 lg:w-20 lg:h-20 rounded-full flex justify-center items-center absolute transform translate-x-21 z-0 translate-y-2 lg:translate-x-24 lg:translate-y-2 bg-white border border-green-500">
                     <i className="bi bi-person-fill text-gray-700 text-4xl"></i>
                   </div>
                   <div className="w-full h-2/6 flex justify-start">
                     <div className="flex flex-col justify-around">
                       <h1 className=" font-bold flex justify-between">
-                        <div className="flex items-baseline gap-1">
+                        <div className="flex items-baseline text-sm lg:text-md gap-1">
                           {data.name}
                           <div className="font-light text-xs">{data.time}</div>
                         </div>
-                        <div className="font-normal flex items-center gap-2 text-yellow-400">
+                        <div className="font-normal flex items-center gap-0.5 text-sm lg:text-md lg:gap-2 text-yellow-400">
                           <div className="text-xs">per k/g </div>₹ {data.price}
                         </div>
                       </h1>
-                      <div className="text-sm">{data.description}</div>
+                      <div className="text-xs lg:text-sm">
+                        {data.description}
+                      </div>
                       <div className="font-light text-xs flex justify-between items-center">
                         {data.date}{" "}
                         <button
-                          className="px-4 py-1.5 bg-yellow-400 font-bold flex gap-0.5 justify-baseline hover:cursor-pointer"
+                          className="px-2 lg:px-4 py-1.5 bg-yellow-400 font-bold flex gap-0.5 justify-baseline hover:cursor-pointer"
                           type="button"
                         >
                           Buy<i className="bi bi-arrow-right"></i>
