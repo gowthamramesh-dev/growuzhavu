@@ -138,6 +138,7 @@ const Home = () => {
               {/* sort variablity */}
 
               {/* Sort button */}
+
               <i className="bi bi-sort-up hover:cursor-pointer"></i>
               <i className="bi bi-sort-down-alt hover:cursor-pointer"></i>
             </div>

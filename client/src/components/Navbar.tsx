@@ -4,7 +4,9 @@ const Navbar = () => {
       <div className="px-5 h-full bg-slate-950 border-r border-r-green-500">
         <div className="h-full">
           <div className="border-b border-green-500 h-1/12 flex items-center">
-            <h1 className="text-3xl w-full flex justify-center">Grow Uzhavu</h1>
+            <h1 className="lg:text-3xl w-full flex justify-center">
+              Grow Uzhavu
+            </h1>
           </div>
           <div className=" flex justify-center items-center h-1/12 border-b border-green-500 ">
             <button

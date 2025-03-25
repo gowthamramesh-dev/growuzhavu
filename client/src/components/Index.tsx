@@ -8,7 +8,7 @@ import Login from "./Login.tsx";
 const Index = () => (
   <>
     <div className="flex flex-row h-dvh w-full">
-      <div className="w-2/12 h-dvh fixed top-0 left-0 z-10 bottom-0">
+      <div className="w-16 lg:w-2/12 h-dvh fixed top-0 left-0 z-10 bottom-0">
         <Navbar />
       </div>
       <div className="w-10/12 ml-auto">
