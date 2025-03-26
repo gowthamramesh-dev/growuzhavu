@@ -4,7 +4,7 @@ const Navbar = () => {
       <div className="px-5 h-full bg-slate-950 border-r border-r-green-500">
         <div className="h-full">
           <div className="border-b border-green-500 h-1/12 flex items-center">
-            <h1 className="lg:text-3xl w-full flex justify-center">
+            <h1 className="xl:text-3xl w-full flex justify-center">
               Grow Uzhavu
             </h1>
           </div>

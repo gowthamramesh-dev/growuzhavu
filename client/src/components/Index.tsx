@@ -14,7 +14,7 @@ const Index = () => (
       >
         <Navbar />
       </div>
-      <div id="maine" className="lg:w-10/12 w-3/4 ml-auto">
+      <div id="maine" className="lg:w-10/12 w-3/4  md:ml-auto">
         <div className="sticky z-10 top-0 h-1/12 ">
           <NavbarTop />
         </div>

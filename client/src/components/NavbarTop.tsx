@@ -5,10 +5,12 @@ const NavbarTop = () => {
       element.classList.remove("hidden");
       document.getElementById("maine")?.classList.remove("w-full");
       document.getElementById("items")?.classList.remove("grid-cols-3");
+      document.getElementById("logo")?.classList.add("hidden");
     } else {
       element?.classList.add("hidden");
       document.getElementById("maine")?.classList.add("w-full");
-      document.getElementById("items")?.classList.add("grid-cols-3");
+      // document.getElementById("items")?.classList.add("grid-cols-3");
+      document.getElementById("logo")?.classList.remove("hidden");
     }
   };
   return (
@@ -23,6 +25,9 @@ const NavbarTop = () => {
           <i className="bi bi-three-dots-vertical"></i>
         </button>
         <div className="w-full h-full flex justify-between items-center">
+          <div className="" id="logo">
+            GrowUzhavu
+          </div>
           <div className="h-full w-2/4 flex justify-center items-center ">
             <input
               className="h-2/3 w-full px-1 border border-green-500 outline-0"
