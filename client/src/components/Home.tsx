@@ -158,7 +158,7 @@ const Home = () => {
                     src={data.picture}
                     alt={data.name}
                   />
-                  <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-full flex justify-center items-center absolute transform translate-x-21 z-0 translate-y-2 lg:translate-x-24 lg:translate-y-2 bg-white border border-green-500">
+                  <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-full flex justify-center items-center absolute transform translate-x-21 z-0 translate-y-2 lg:translate-x-23 lg:translate-y-2 bg-white border border-green-500">
                     <i className="bi bi-person-fill text-gray-700 text-4xl"></i>
                   </div>
                   <div className="w-full h-2/6 flex justify-start">
