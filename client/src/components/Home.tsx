@@ -145,7 +145,7 @@ const Home = () => {
           </div>
           <div
             id="items"
-            className="p-5 grid md:grid-cols-2 lg:grid-cols-3 gap-y-5 w-full "
+            className="p-5 grid md:grid-cols-3 lg:grid-cols-4 gap-y-5 w-full "
           >
             {sampleData.map((data) => (
               <div
