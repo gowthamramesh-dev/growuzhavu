@@ -8,22 +8,21 @@ import Login from "./Login.tsx";
 const Index = () => (
   <>
     <div className="flex flex-row h-dvh w-full">
-      <div
-        id="nav"
-        className="w-1/4 lg:w-2/12 h-dvh fixed top-0 left-0 z-10 bottom-0 ease-in-out"
-      >
-        <Navbar />
-      </div>
-      <div id="maine" className="lg:w-10/12 w-3/4  md:ml-auto">
-        <div className="sticky z-10 top-0 h-1/12 ">
+      <div className="w-full">
+        <div className="fixed z-10 top-0 h-1/12 w-full">
           <NavbarTop />
         </div>
-        <div className="h-dvh">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/login" element={<Login />} />
-          </Routes>
+        <div className="h-dvh flex">
+          <div className="w-1/12">
+            <Navbar />
+          </div>
+          <div className="w-full ml-auto">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/login" element={<Login />} />
+            </Routes>
+          </div>
         </div>
       </div>
     </div>

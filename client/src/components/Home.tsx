@@ -143,10 +143,7 @@ const Home = () => {
               <i className="bi bi-sort-down-alt hover:cursor-pointer"></i>
             </div>
           </div>
-          <div
-            id="items"
-            className="p-5 grid md:grid-cols-3 lg:grid-cols-4 gap-y-5 w-full "
-          >
+          <div id="items" className="p-5 flex flex-wrap gap-5 w-full ">
             {sampleData.map((data) => (
               <div
                 className=" w-64 lg:w-72 lg:h-80 border border-green-500"

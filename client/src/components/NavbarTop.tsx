@@ -1,30 +1,16 @@
 const NavbarTop = () => {
-  const handleChange = () => {
-    const element = document.getElementById("nav");
-    if (element?.classList.contains("hidden")) {
-      element.classList.remove("hidden");
-      document.getElementById("maine")?.classList.remove("w-full");
-      document.getElementById("items")?.classList.remove("grid-cols-3");
-      document.getElementById("logo")?.classList.add("hidden");
-    } else {
-      element?.classList.add("hidden");
-      document.getElementById("maine")?.classList.add("w-full");
-      // document.getElementById("items")?.classList.add("grid-cols-3");
-      document.getElementById("logo")?.classList.remove("hidden");
-    }
-  };
   return (
     <>
-      <div className="flex justify-center items-center p-2 h-full gap-2 lg:gap-0 bg-slate-950 border-b border-green-500">
+      <div className="flex justify-center items-center p-2 h-full gap-3 lg:gap-0 bg-slate-950 border-b border-green-500">
         <button
           id="nav-btn"
           className="hover:cursor-pointer"
           type="button"
-          onClick={handleChange}
+          /* onClick={handleChange} */
         >
-          <i className="bi bi-three-dots-vertical"></i>
+          <i className="bi bi-list text-2xl"></i>
         </button>
-        <div className="w-full h-full flex justify-between items-center">
+        <div className="w-full h-full flex justify-between items-center px-">
           <div className="" id="logo">
             GrowUzhavu
           </div>
