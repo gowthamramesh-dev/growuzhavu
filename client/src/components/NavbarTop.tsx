@@ -1,17 +1,9 @@
 const NavbarTop = () => {
   return (
     <>
-      <div className="flex justify-center items-center p-2 h-full gap-3 lg:gap-0 bg-slate-950 border-b border-green-500">
-        <button
-          id="nav-btn"
-          className="hover:cursor-pointer"
-          type="button"
-          /* onClick={handleChange} */
-        >
-          <i className="bi bi-list text-2xl"></i>
-        </button>
+      <div className="flex justify-center items-center p-2 h-full gap-5 lg:gap-0 bg-slate-950 border-b border-green-500">
         <div className="w-full h-full flex justify-between items-center px-">
-          <div className="" id="logo">
+          <div className="text-3xl" id="logo">
             GrowUzhavu
           </div>
           <div className="h-full w-2/4 flex justify-center items-center ">

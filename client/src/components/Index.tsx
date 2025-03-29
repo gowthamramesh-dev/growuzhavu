@@ -12,11 +12,11 @@ const Index = () => (
         <div className="fixed z-10 top-0 h-1/12 w-full">
           <NavbarTop />
         </div>
-        <div className="h-dvh flex">
-          <div className="w-1/12">
+        <div className="flex mt-auto">
+          <div className="fixed mt-13 h-full hover:w-2/12 z-10 border-r group border-green-500 ">
             <Navbar />
           </div>
-          <div className="w-full ml-auto">
+          <div className="w-full ml-14">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/dashboard" element={<Dashboard />} />

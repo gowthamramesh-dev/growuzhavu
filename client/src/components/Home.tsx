@@ -111,7 +111,7 @@ const Home = () => {
         <div className="lg:p-3">
           <div className="border border-green-500 ">
             {/* Image */}
-            <img className="w-full h-60" src={Banner} alt="" />
+            <img className="w-full h-60 object-cover" src={Banner} alt="" />
             {/* <div className="">
               <h1 className="">GrowUzhavu</h1>
               <h3 className="">Let's Connect With Market</h3>
