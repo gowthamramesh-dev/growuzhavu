@@ -39,14 +39,14 @@ const NavbarTop = () => {
           </div>
           <div className="flex flex-row gap-3 items-center">
             <button
-              className="rounded-xs text-sm lg:text-md px-2 bg-yellow-500"
+              className="rounded-xs text-sm lg:text-lg px-2 bg-yellow-500"
               type="button"
             >
               Login
             </button>
 
             <button
-              className="rounded-xs text-sm lg:text-md px-2 bg-yellow-500"
+              className="rounded-xs text-sm lg:text-lg px-2 bg-yellow-500"
               type="button"
             >
               Sign Up
