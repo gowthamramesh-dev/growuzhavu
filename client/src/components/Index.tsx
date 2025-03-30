@@ -4,6 +4,7 @@ import Navbar from "./Navbar.tsx";
 import NavbarTop from "./NavbarTop.tsx";
 import Dashboard from "./Dashboard.tsx";
 import Login from "./Login.tsx";
+import Blogin from "./Blogin.tsx";
 
 const Index = () => (
   <>
@@ -13,14 +14,15 @@ const Index = () => (
           <NavbarTop />
         </div>
         <div className="flex mt-auto">
-          <div className="fixed mt-13 h-full hover:w-2/12 z-10 border-r group border-green-500 ">
+          <div className="fixed h-full hover:w-2/12 border-r group border-green-500 ">
             <Navbar />
           </div>
-          <div className="w-full ml-14">
+          <div className="w-full ml-14 lg:mt-14">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/login" element={<Login />} />
+              <Route path="/farmer-signup" element={<Login />} />
+              <Route path="/buyer-signup" element={<Blogin />} />
             </Routes>
           </div>
         </div>

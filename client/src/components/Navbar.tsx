@@ -2,7 +2,7 @@ const Navbar = () => {
   return (
     <>
       <div className="bg-slate-950 w-full h-dvh group">
-        <div className="p-2 flex flex-col gap-10">
+        <div className="p-2 flex flex-col h-full justify-center gap-10">
           <div className="pt-2">
             <label className="hidden group-hover:flex p-3 ">Marketplace</label>
             <ul className=" *:border *:flex *:px-1 *:justify-center group-hover:*:justify-normal group-hover:*:px-2 flex flex-col gap-5 group-hover:gap-3 *:gap-3 *:items-center **:h-full *:hover:border-green-500 ">

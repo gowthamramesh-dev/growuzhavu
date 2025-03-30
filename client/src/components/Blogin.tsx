@@ -1,15 +1,15 @@
 import { useState } from "react";
 
-const Login = () => {
+const Blogin = () => {
   const [signup, setSignup] = useState(true);
   return (
     <>
       <div className="w-full h-dvh flex flex-col justify-center items-center">
         <div className="flex flex-col items-center p-5 border border-green-500 w-1/3 h-fit">
-          <label className="text-2xl p-2 text-green-500">Farmer</label>
+          <label className="text-2xl p-2 text-green-500">Buyer</label>
           <div className="flex items-center justify-around bg-gray-900 w-2/3 *:w-full *:m-0.5 my-5 ">
             <button
-              className="focus:bg-gray-600 "
+              className="focus:bg-gray-600"
               type="button"
               onClick={() => setSignup(true)}
             >
@@ -40,11 +40,6 @@ const Login = () => {
                   type="text"
                   className="w-full h-2/12 border border-green-500 outline-0 p-2 rounded"
                   placeholder="Email Id"
-                />
-                <input
-                  type="text"
-                  className="w-full h-2/12 border border-green-500 outline-0 p-2 rounded"
-                  placeholder="Farmer Id"
                 />
                 <input
                   type="number"
@@ -94,4 +89,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Blogin;

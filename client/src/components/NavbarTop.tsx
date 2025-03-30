@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const NavbarTop = () => {
   return (
     <>
@@ -20,14 +22,14 @@ const NavbarTop = () => {
               className="rounded-xs text-sm lg:text-lg px-2 bg-yellow-500"
               type="button"
             >
-              Login
+              <Link to="/farmer-signup">Farmer</Link>
             </button>
 
             <button
               className="rounded-xs text-sm lg:text-lg px-2 bg-yellow-500"
               type="button"
             >
-              Sign Up
+              <Link to="/buyer-signup">Buyer</Link>
             </button>
             <div className="border flex justify-center items-center lg:text-3xl border-green-500 w-6 h-6 lg:w-10 lg:h-10 rounded-full">
               <i className="bi bi-person-fill text-green-500 lg:text-2xl"></i>
