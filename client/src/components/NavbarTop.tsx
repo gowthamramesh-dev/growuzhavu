@@ -5,7 +5,7 @@ const NavbarTop = () => {
     <>
       <div className="flex justify-center items-center p-2 h-full gap-5 lg:gap-0 bg-slate-950 border-b border-green-500">
         <div className="w-full h-full flex justify-between items-center px-">
-          <div className="text-3xl" id="logo">
+          <div className="lg:text-3xl" id="logo">
             GrowUzhavu
           </div>
           <div className="h-full w-2/4 flex justify-center items-center ">
@@ -17,7 +17,7 @@ const NavbarTop = () => {
             />
             <i className="bi bi-search relative transform -translate-x-6 h-2/3 hover:cursor-pointer text-green-500"></i>
           </div>
-          <div className="flex flex-row gap-3 items-center">
+          <div className="hidden md:flex md:flex-row gap-3 items-center">
             <button
               className="rounded-xs text-sm lg:text-lg px-2 bg-yellow-500"
               type="button"

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Navbar = () => {
   return (
     <>
@@ -8,7 +10,9 @@ const Navbar = () => {
             <ul className=" *:border *:flex *:px-1 *:justify-center group-hover:*:justify-normal group-hover:*:px-2 flex flex-col gap-5 group-hover:gap-3 *:gap-3 *:items-center **:h-full *:hover:border-green-500 ">
               <li>
                 <i className="bi bi-graph-up text-2xl"></i>
-                <label className="hidden group-hover:flex">Dashboard</label>
+                <label className="hidden group-hover:flex">
+                  <Link to="/dashboard/user-1">Dashboard</Link>
+                </label>
               </li>
               <li>
                 <i className="bi bi-shop text-2xl"></i>
