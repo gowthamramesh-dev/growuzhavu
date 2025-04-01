@@ -17,7 +17,7 @@ const Index = () => (
           <div className="hidden lg:flex fixed h-full hover:w-2/12 border-r group border-green-500 ">
             <Navbar />
           </div>
-          <div className="w-full m-2 lg:ml-14 lg:mt-14">
+          <div className="w-full m-2 lg:ml-14 mt-20 lg:mt-14">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/dashboard/:id" element={<Dashboard />} />

@@ -143,19 +143,19 @@ const Home = () => {
               <i className="bi bi-sort-down-alt hover:cursor-pointer"></i>
             </div>
           </div>
-          <div id="items" className="p-5 flex flex-wrap gap-5 w-full ">
+          <div
+            id="items"
+            className="p-5 flex sm:justify-center lg:justify-normal flex-wrap gap-5 w-full bg-slate-950"
+          >
             {sampleData.map((data) => (
-              <div
-                className=" w-64 lg:w-72 lg:h-80 border border-green-500"
-                key={data.id}
-              >
+              <div className=" w-72 h-80 border border-green-500" key={data.id}>
                 <div className="w-full h-full flex flex-col items-center bg-slate-950 p-1.5 lg:p-3">
                   <img
                     className="w-full h-48 lg:h-4/6 border border-green-500"
                     src={data.picture}
                     alt={data.name}
                   />
-                  <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-full flex justify-center items-center absolute transform translate-x-21 z-0 translate-y-2 lg:translate-x-23 lg:translate-y-2 bg-white border border-green-500">
+                  <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-full flex justify-center items-center absolute transform translate-x-25 z-0 translate-y-2 lg:translate-x-23 lg:translate-y-2 bg-white border border-green-500">
                     <i className="bi bi-person-fill text-gray-700 text-4xl"></i>
                   </div>
                   <div className="w-full h-2/6 flex justify-start">
