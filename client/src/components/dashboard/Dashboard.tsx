@@ -17,7 +17,7 @@ const Dashboard = () => {
       <div className="w-full h-dvh lg:p-3 flex gap-2">
         <div className=" h-full lg:w-4/5 w-full">
           <div className="flex flex-col gap-3">
-            <div className="w-full p-1 lg:p-3 flex items-center lg:gap-3 h-28 lg:h-52 border border-green-500">
+            <div className="w-full bg-slate-950 p-1 lg:p-3 flex items-center lg:gap-3 h-28 lg:h-52 border border-green-500">
               <img
                 className="w-1/5 border border-green-500 h-3/4 lg:h-full object-cover rounded outline-0"
                 src=""
@@ -71,7 +71,7 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-        <div className="hidden lg:flex border border-green-500 w-1/5 ">
+        <div className="hidden bg-slate-950 lg:flex border border-green-500 w-1/5 ">
           hello
         </div>
       </div>

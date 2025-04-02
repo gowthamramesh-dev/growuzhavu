@@ -14,7 +14,10 @@ const Index = () => (
           <NavbarTop />
         </div>
         <div className="flex mt-auto">
-          <div className="hidden lg:flex fixed h-full hover:w-2/12 border-r group border-green-500 ">
+          <div
+            id="nav"
+            className="hidden w-2/5 lg:w-fit lg:flex fixed h-full lg:hover:w-2/12 border-r group border-green-500 "
+          >
             <Navbar />
           </div>
           <div className="w-full m-2 lg:ml-14 mt-20 lg:mt-14">

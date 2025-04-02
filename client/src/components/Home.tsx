@@ -145,7 +145,7 @@ const Home = () => {
           </div>
           <div
             id="items"
-            className="p-5 flex sm:justify-center lg:justify-normal flex-wrap gap-5 w-full bg-slate-950"
+            className="p-5 flex justify-center lg:justify-normal flex-wrap gap-5 w-full bg-slate-950"
           >
             {sampleData.map((data) => (
               <div className=" w-72 h-80 border border-green-500" key={data.id}>
