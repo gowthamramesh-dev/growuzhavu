@@ -1,6 +1,20 @@
 import { Link } from "react-router-dom";
 
 const NavbarTop = () => {
+  const handleNav = () => {
+    const element = document.getElementById("nav");
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+    element?.classList.contains("hidden")
+      ? element.classList.remove("hidden")
+      : element?.classList.add("hidden");
+  };
+  const searchBar = () => {
+    const element = document.getElementById("ser");
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+    element?.classList.contains("hidden")
+      ? element.classList.remove("hidden")
+      : element?.classList.add("hidden");
+  };
   return (
     <>
       <div className="flex justify-center items-center p-2 h-full gap-5 lg:gap-0 bg-slate-950 border-b border-green-500">
@@ -9,17 +23,23 @@ const NavbarTop = () => {
             className="lg:text-3xl flex justify-center items-center gap-1 "
             id="logo"
           >
-            <i className="bi bi-list text-2xl"></i>
+            <i
+              className="lg:hidden bi bi-list text-2xl"
+              onClick={handleNav}
+            ></i>
             GrowUzhavu
           </div>
-          <div className="h-full w-full lg:w-2/4 flex lg:justify-center justify-end items-end lg:items-center ">
+          <div className="h-full w-full lg:w-2/4 flex lg:justify-center justify-end items-center ">
             <input
-              className="h-2/3 hidden lg:flex w-full px-1 border border-green-500 outline-0"
+              className="h-2/3 hidden w-2/3 lg:flex lg:w-full px-1 border border-green-500 outline-0"
               type="text"
               name=""
-              id=""
+              id="ser"
             />
-            <i className="bi bi-search lg:relative lg:transform lg:-translate-x-6 h-2/3 hover:cursor-pointer text-green-500"></i>
+            <i
+              className="bi bi-search relative transform -translate-x-6 translate-y-1.5 lg:-translate-y-0 lg:-translate-x-6 h-2/3 hover:cursor-pointer text-green-500"
+              onClick={searchBar}
+            ></i>
           </div>
           <div className="hidden md:flex md:flex-row gap-3 items-center">
             <button
