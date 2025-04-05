@@ -3,10 +3,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const handleNav = () => {
     const element = document.getElementById("nav");
-    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-    element?.classList.contains("hidden")
-      ? element.classList.remove("hidden")
-      : element?.classList.add("hidden");
+    element?.classList.toggle("hidden");
   };
   return (
     <>
@@ -25,7 +22,6 @@ const Navbar = () => {
                   </label>
                 </Link>
               </li>
-
               <li>
                 <Link onClick={handleNav} to="/">
                   <i className="bi bi-shop text-2xl"></i>

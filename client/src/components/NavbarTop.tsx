@@ -3,17 +3,11 @@ import { Link } from "react-router-dom";
 const NavbarTop = () => {
   const handleNav = () => {
     const element = document.getElementById("nav");
-    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-    element?.classList.contains("hidden")
-      ? element.classList.remove("hidden")
-      : element?.classList.add("hidden");
+    element?.classList.toggle("hidden");
   };
   const searchBar = () => {
     const element = document.getElementById("ser");
-    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-    element?.classList.contains("hidden")
-      ? element.classList.remove("hidden")
-      : element?.classList.add("hidden");
+    element?.classList.toggle("hidden");
   };
   return (
     <>
