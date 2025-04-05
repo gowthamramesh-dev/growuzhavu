@@ -11,10 +11,10 @@ const Editprofile = () => {
         <h1 className="text-3xl">Edit Profile</h1>
         <form className="flex flex-col gap-2.5">
           <label className="">Photo</label>
-          <div className="flex gap-5">
+          <div className="flex gap-5 flex-col">
             <img className="w-44 h-50 border" id="pro-ph" src="" alt="" />
             <input
-              className="border content-none"
+              className="file:cursor-pointer w-fit h-fit bg-slate-500 p-2 file:px-2 file:bg-yellow-500 rounded-xs file:rounded "
               type="file"
               name=""
               id="hello"
@@ -93,7 +93,7 @@ const Editprofile = () => {
             />
           </div>
           <button
-            className="bg-yellow-500 w-fit h-fit text-md py-1 px-2.5 rounded-xs"
+            className="bg-yellow-500 w-fit h-fit text-md py-1 px-2.5 rounded-xs hover:cursor-pointer"
             type="submit"
           >
             Submit
