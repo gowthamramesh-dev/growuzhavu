@@ -57,7 +57,7 @@ const Dashboard = () => {
               </div>
             </div>
             <div className=" h-dvh flex flex-col p-3 gap-5">
-              <div className="flex gap-3 *:border *:px-2 *:text-md">
+              <div className="flex gap-3 *:bg-yellow-500 *:rounded-xs  *:px-2 *:text-md">
                 <button onClick={() => setCurrentComponent("home")}>
                   Posts
                 </button>
@@ -65,7 +65,7 @@ const Dashboard = () => {
                   History
                 </button>
               </div>
-              <div className="*:border *:border-green-500 *:h-dvh *:p-3 ">
+              <div className="*:border *:border-green-500 *:h-full *:p-3">
                 {renderComponent()}
               </div>
             </div>
