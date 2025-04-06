@@ -4,12 +4,22 @@ const Editprofile = () => {
     element?.classList.toggle("hidden");
   };
   const otpEnterElement = document.getElementById("otp-enter");
+
   return (
     <>
       <div className="bg-slate-950 flex flex-col gap-5">
         <h1 className="text-3xl">Edit Profile</h1>
         <form className="flex flex-col gap-2.5">
-          <div className=""></div>
+          <label className="">Photo</label>
+          <div className="flex gap-5 flex-col">
+            <img className="w-44 h-50 border" id="pro-ph" src="" alt="" />
+            <input
+              className="file:cursor-pointer w-fit h-fit bg-slate-500 p-2 file:px-2 file:bg-yellow-500 rounded-xs file:rounded "
+              type="file"
+              name=""
+              id="hello"
+            />
+          </div>
           <label className="text-md">Name</label>
           <input
             className="bg-slate-500 w-xs h-10 rounded text-white outline-0 p-2"
@@ -20,7 +30,7 @@ const Editprofile = () => {
           <select
             className="bg-slate-500 w-xs h-10 rounded text-white outline-0 p-2"
             name=""
-            id=""
+            id="profilePhoto"
           >
             <option value="">Male</option>
             <option value="">female</option>
@@ -82,6 +92,12 @@ const Editprofile = () => {
               rows={2}
             />
           </div>
+          <button
+            className="bg-yellow-500 w-fit h-fit text-md py-1 px-2.5 rounded-xs hover:cursor-pointer"
+            type="submit"
+          >
+            Submit
+          </button>
         </form>
       </div>
     </>
