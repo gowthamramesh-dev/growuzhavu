@@ -1,15 +1,24 @@
 import { useParams } from "react-router-dom";
 import Editprofile from "./Editprofile";
 import { useState } from "react";
+import Post from "./Post";
+import History from "./History";
 
 const Dashboard = () => {
   const { id } = useParams();
   const [currentComponent, setCurrentComponent] = useState("home");
+  const [follow, setFollow] = useState(true);
 
   const renderComponent = () => {
     switch (currentComponent) {
+      case "history-page":
+        return <History />;
+      case "post":
+        return <Post />;
       case "editProfile":
         return <Editprofile />;
+      default:
+        return <Post />;
     }
   };
   return (
@@ -38,7 +47,7 @@ const Dashboard = () => {
                     </div>
                     <h1 className="lg:text-md text-xs">000 Followers </h1>
                   </div>
-                  <div className="flex flex-col gap-2 flex-wrap items-start h-full">
+                  <div className="flex flex-col *:cursor-pointer gap-2 flex-wrap items-start h-full">
                     <button
                       className="bg-yellow-500 px-0.5 lg:px-2 rounded-xs lg:rounded text-xs lg:text-lg"
                       type="button"
@@ -47,25 +56,34 @@ const Dashboard = () => {
                       <i className="bi bi-pencil-square"></i> Edit Profile
                     </button>
                     <button
-                      className="bg-yellow-500 px-0.5 lg:px-2 rounded-xs lg:rounded text-xs lg:text-lg"
+                      className="bg-yellow-500 *:px-0.5 *:lg:px-2 rounded-xs lg:rounded text-xs lg:text-lg *:flex *:gap-2"
                       type="button"
+                      onClick={() => setFollow(!follow)}
                     >
-                      <i className="bi bi-person-plus-fill"></i> Follow
+                      {follow ? (
+                        <div className="">
+                          <i className="bi bi-person-plus-fill"></i> Follow
+                        </div>
+                      ) : (
+                        <div className="">
+                          <i className="bi bi-person-check-fill"></i>Following
+                        </div>
+                      )}
                     </button>
                   </div>
                 </div>
               </div>
             </div>
             <div className=" h-dvh flex flex-col p-3 gap-5">
-              <div className="flex gap-3 *:bg-yellow-500 *:rounded-xs  *:px-2 *:text-md">
-                <button onClick={() => setCurrentComponent("home")}>
+              <div className="flex gap-3 *:bg-yellow-500 *:rounded-xs *:cursor-pointer  *:px-2 *:text-md">
+                <button onClick={() => setCurrentComponent("post-page")}>
                   Posts
                 </button>
-                <button onClick={() => setCurrentComponent("about")}>
+                <button onClick={() => setCurrentComponent("history-page")}>
                   History
                 </button>
               </div>
-              <div className="*:border *:border-green-500 *:h-full *:p-3">
+              <div className="*:border *:border-green-500  *:p-3">
                 {renderComponent()}
               </div>
             </div>
