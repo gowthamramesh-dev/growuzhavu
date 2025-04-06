@@ -7,7 +7,7 @@ const Login = () => {
       <div className="w-full h-dvh flex flex-col justify-center items-center">
         <div className="flex flex-col items-center p-5 border border-green-500 w-full lg:w-1/3 h-fit">
           <label className="text-2xl p-2 text-green-500">Farmer</label>
-          <div className="flex items-center justify-around bg-gray-900 w-2/3 *:w-full *:m-0.5 my-5 ">
+          <div className="flex items-center justify-around bg-gray-900 w-2/3 *:cursor-pointer *:w-full *:m-0.5 my-5 ">
             <button
               className="focus:bg-gray-600 "
               type="button"

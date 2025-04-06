@@ -49,8 +49,17 @@ const NavbarTop = () => {
             >
               <Link to="/buyer-signup">Buyer</Link>
             </button>
-            <div className="border flex justify-center items-center lg:text-3xl border-green-500 w-6 h-6 lg:w-10 lg:h-10 rounded-full">
-              <i className="bi bi-person-fill text-green-500 lg:text-2xl"></i>
+            <div className="group">
+              <div className="border flex justify-center items-center lg:text-3xl border-green-500 w-6 h-6 lg:w-10 lg:h-10 rounded-full">
+                <i className="bi bi-person-fill text-green-500 lg:text-2xl"></i>
+              </div>
+              <div className="hidden absolute group-hover:flex z-20 top-11 lg:top-13 xl:top-15 right-6 border border-green-500 bg-slate-950 w-fit p-2">
+                <ul className="*:flex *:gap-2 *:hover:cursor-pointer lg:*:text-lg *:text-sm">
+                  <li>
+                    <i className="bi bi-box-arrow-right"></i>logout
+                  </li>
+                </ul>
+              </div>
             </div>
             {/* <div className="">User</div> */}
             <div>
