@@ -5,6 +5,7 @@ import NavbarTop from "./NavbarTop.tsx";
 import Dashboard from "./dashboard/Dashboard.tsx";
 import Login from "./Login.tsx";
 import Blogin from "./Blogin.tsx";
+import PostDetail from "./PostDetail.tsx";
 
 const Index = () => (
   <>
@@ -23,6 +24,7 @@ const Index = () => (
           <div className="w-full m-2 lg:ml-14 mt-20 lg:mt-14">
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/post/:id" element={<PostDetail />} />
               <Route path="/dashboard/:id" element={<Dashboard />} />
               <Route path="/farmer-signup" element={<Login />} />
               <Route path="/buyer-signup" element={<Blogin />} />
