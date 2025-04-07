@@ -15,7 +15,7 @@ const NavbarTop = () => {
   };
   return (
     <>
-      <div className="flex justify-center items-center p-2 h-full gap-5 lg:gap-0 bg-white dark:bg-slate-950 border-b border-green-500">
+      <div className="flex justify-center items-center p-2 h-full gap-5 lg:gap-0 bg-slate-100 dark:bg-slate-950 border-b border-green-500">
         <div className="w-full h-full flex justify-between items-center ">
           <div
             className="lg:text-3xl flex text-black dark:text-white justify-center items-center gap-1 "
@@ -57,7 +57,7 @@ const NavbarTop = () => {
               <div className="border flex justify-center  items-center lg:text-3xl bg-white border-green-500 w-6 h-6 lg:w-10 lg:h-10 rounded-full">
                 <i className="bi bi-person-fill text-green-500 lg:text-2xl"></i>
               </div>
-              <div className="hidden absolute group-hover:flex z-20 top-11 lg:top-13 right-6 border border-green-500 bg-white dark:bg-slate-950 w-fit p-2">
+              <div className="hidden absolute group-hover:flex z-20 top-11 lg:top-13 right-6 border border-green-500 bg-slate-100 dark:bg-slate-950 w-fit p-2">
                 <ul className="*:flex *:gap-2 *:hover:cursor-pointer lg:*:text-lg *:text-black *:dark:text-white *:text-sm">
                   <li>
                     <i className="bi bi-box-arrow-right"></i>logout

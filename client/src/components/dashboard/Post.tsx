@@ -4,7 +4,7 @@ const Post = () => {
   const [post, setPost] = useState(false);
   return (
     <>
-      <div className="h-dvh w-full flex bg-slate-950 items-center justify-center">
+      <div className="h-dvh w-full flex  items-center justify-center">
         {post ? (
           <div onClick={() => setPost(false)} className="">
             Post

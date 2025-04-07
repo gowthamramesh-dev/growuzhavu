@@ -5,7 +5,7 @@ const Login = () => {
   return (
     <>
       <div className="w-full h-dvh flex flex-col justify-center items-center">
-        <div className="flex flex-col items-center p-5 border border-green-500 w-full lg:w-1/3 h-fit">
+        <div className="flex flex-col items-center p-5 border bg-slate-100 dark:bg-transparent border-green-500 w-full lg:w-1/3 h-fit">
           <label className="text-2xl p-2 text-green-500">Farmer</label>
           <div className="flex items-center justify-around bg-gray-900 w-2/3 *:cursor-pointer *:w-full *:m-0.5 my-5 ">
             <button
@@ -25,7 +25,7 @@ const Login = () => {
           </div>
           <div className="w-full h-full p-2">
             {signup ? (
-              <div className="h-full py-4 flex flex-col gap-2">
+              <div className="h-full py-4 flex flex-col *:dark:text-white *:text-black gap-2">
                 <input
                   type="text"
                   className="w-full h-2/12 border border-green-500 outline-0 p-2 rounded"
@@ -63,13 +63,16 @@ const Login = () => {
                   placeholder="Confirm Password"
                 />
                 <div className="h-full w-full flex items-center justify-center py-5">
-                  <button className="px-10 py-1 bg-green-500" type="button">
+                  <button
+                    className="px-10 py-1 text-white bg-green-500"
+                    type="button"
+                  >
                     SignUp
                   </button>
                 </div>
               </div>
             ) : (
-              <div className="h-full py-4 flex flex-col gap-2">
+              <div className="h-full py-4 flex *:dark:text-white *:text-black flex-col gap-2">
                 <input
                   type="text"
                   className="w-full h-1/2 border border-green-500 outline-0 p-2 rounded"
@@ -81,7 +84,10 @@ const Login = () => {
                   placeholder="Password"
                 />
                 <div className="h-full w-full flex items-center justify-center py-5">
-                  <button className="px-10 py-1 bg-green-500" type="button">
+                  <button
+                    className="px-10 py-1 text-white bg-green-500"
+                    type="button"
+                  >
                     Login
                   </button>
                 </div>

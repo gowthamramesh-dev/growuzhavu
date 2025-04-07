@@ -26,13 +26,13 @@ const Dashboard = () => {
       <div className="w-full h-dvh lg:p-3 flex gap-2">
         <div className=" h-full lg:w-4/5 w-full">
           <div className="flex flex-col gap-3">
-            <div className="w-full bg-slate-950 p-1 lg:p-3 flex items-center lg:gap-3 h-28 lg:h-52 border border-green-500">
+            <div className="w-full bg-slate-100 dark:bg-slate-950 p-1 lg:p-3 flex items-center lg:gap-3 h-28 lg:h-52 border border-green-500">
               <img
                 className="w-1/5 border border-green-500 h-3/4 lg:h-full object-cover rounded outline-0"
                 src=""
                 alt="hello"
               />
-              <div className="w-4/5 flex justify-between p-2 h-full  flex-wrap ">
+              <div className="w-4/5 flex justify-between p-2 h-full text-black dark:text-white  flex-wrap ">
                 <div className="h-full flex flex-col flex-wrap">
                   <div className="lg:w-4/5 w-4/6 h-full flex flex-col justify-around flex-wrap overflow-hidden lg:justify-between">
                     <div className="">
@@ -47,7 +47,7 @@ const Dashboard = () => {
                     </div>
                     <h1 className="lg:text-md text-xs">000 Followers </h1>
                   </div>
-                  <div className="flex flex-col *:cursor-pointer gap-2 flex-wrap items-start h-full">
+                  <div className="flex flex-col text-white *:cursor-pointer gap-2 flex-wrap items-start h-full">
                     <button
                       className="bg-yellow-500 px-0.5 lg:px-2 rounded-xs lg:rounded text-xs lg:text-lg"
                       type="button"
@@ -83,13 +83,13 @@ const Dashboard = () => {
                   History
                 </button>
               </div>
-              <div className="*:border *:border-green-500  *:p-3">
+              <div className="*:border bg-slate-100 text-black dark:text-white dark:bg-slate-950 *:border-green-500  *:p-3">
                 {renderComponent()}
               </div>
             </div>
           </div>
         </div>
-        <div className="hidden bg-slate-950 lg:flex border border-green-500 w-1/5 ">
+        <div className="hidden bg-slate-100 text-black dark:text-white dark:bg-slate-950 lg:flex border border-green-500 w-1/5 ">
           hello
         </div>
       </div>
