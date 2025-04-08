@@ -1,4 +1,6 @@
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import LanguageSelector from "./language-selector";
 
 const NavbarTop = () => {
   const handleDark = () => {
@@ -13,6 +15,9 @@ const NavbarTop = () => {
     const element = document.getElementById("ser");
     element?.classList.toggle("hidden");
   };
+
+  const { t } = useTranslation();
+
   return (
     <>
       <div className="flex justify-center items-center p-2 h-full gap-5 lg:gap-0 bg-slate-100 dark:bg-slate-950 border-b border-green-500">
@@ -25,7 +30,7 @@ const NavbarTop = () => {
               className="lg:hidden bi bi-list text-2xl"
               onClick={handleNav}
             ></i>
-            GrowUzhavu
+            {t("title")}
           </div>
           <div className="h-full w-full lg:w-2/4 flex lg:justify-center justify-end items-center ">
             <input
@@ -40,6 +45,7 @@ const NavbarTop = () => {
             ></i>
           </div>
           <div className="hidden md:flex md:flex-row gap-3 items-center">
+            <LanguageSelector />
             <button
               className="rounded-xs text-sm lg:text-lg px-2 bg-yellow-500"
               type="button"
