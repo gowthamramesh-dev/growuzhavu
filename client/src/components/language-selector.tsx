@@ -7,18 +7,20 @@ const languages = [
 
 const LanguageSelector = () => {
   const { i18n } = useTranslation();
-  const changeLanguage = (lng) => {
+  const changeLanguage = (lng: string | undefined) => {
     i18n.changeLanguage(lng);
   };
   return (
     <>
       <div className="">
         <select
+          className="outline-0 *:bg-slate-950 *:rounded-none"
           value={i18n.language} // Set the current language as the selected value
           onChange={(e) => changeLanguage(e.target.value)} // Use onChange to handle language change
         >
           {languages.map((langs) => (
             <option
+              className=""
               key={langs.code}
               value={langs.code} // Set the value of the option
             >

@@ -6,7 +6,7 @@
       "two": "Account"
     },
     "items": {
-      "dashboard": "Dashboard",
+      "profile": "Profile",
       "market": "Market",
       "explore": "Explore",
       "created": "Created",
@@ -15,5 +15,20 @@
       "progress": "Progress",
       "settings": "Settings"
     }
+  },
+  "buttons": {
+    "foryou": "For You",
+    "top": "Top",
+    "latest": "Latest",
+    "post": "Post",
+    "history": "History",
+    "follow": "Follow",
+    "following": "Following",
+    "editprofile": "Edit Profile",
+    "login": "Login",
+    "signup": "Sign Up",
+    "logout": "Logout",
+    "farmer": "Farmer",
+    "buyer": "Buyer"
   }
 }
