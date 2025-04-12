@@ -1,3 +1,4 @@
+// import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -5,6 +6,7 @@ const Navbar = () => {
     const element = document.getElementById("nav");
     element?.classList.toggle("hidden");
   };
+  // const {marketplace,Dashboard,Market,Explore,Account,Created,Chats,History,Progress,Settings} = useTranslation();
   return (
     <>
       <div className="bg-slate-100 dark:bg-slate-950 w-full h-dvh lg:group">

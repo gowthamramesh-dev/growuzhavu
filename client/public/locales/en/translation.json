@@ -1,0 +1,19 @@
+{
+  "title": "GrowUzhavu",
+  "navbar": {
+    "topics": {
+      "one": "Marketplace",
+      "two": "Account"
+    },
+    "items": {
+      "dashboard": "Dashboard",
+      "market": "Market",
+      "explore": "Explore",
+      "created": "Created",
+      "chats": "Chats",
+      "history": "History",
+      "progress": "Progress",
+      "settings": "Settings"
+    }
+  }
+}
