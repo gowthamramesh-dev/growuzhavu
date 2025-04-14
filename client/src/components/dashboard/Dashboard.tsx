@@ -4,6 +4,7 @@ import { useState } from "react";
 import Post from "./Post";
 import History from "./History";
 import { useTranslation } from "react-i18next";
+import HomePrice from "../HomePrice";
 
 const Dashboard = () => {
   const { id } = useParams();
@@ -94,8 +95,8 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-        <div className="hidden bg-slate-100 text-black dark:text-white dark:bg-slate-950 lg:flex border border-green-500 w-1/5 ">
-          hello
+        <div className="hidden bg-slate-100 text-black dark:text-white dark:bg-slate-950 lg:flex border border-green-500 w-1/5 h-screen overflow-scroll no-scrollbar">
+          <HomePrice />
         </div>
       </div>
     </>
