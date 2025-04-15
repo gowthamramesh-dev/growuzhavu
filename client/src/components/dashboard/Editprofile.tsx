@@ -1,9 +1,9 @@
-import { useParams } from "react-router-dom";
-import axios from "axios";
+// import { useParams } from "react-router-dom";
+// import axios from "axios";
 // import { useState } from "react";
 
 const Editprofile = () => {
-  const { id } = useParams();
+  // const { id } = useParams();
   const mobile_otp = () => {
     const element = document.getElementById("otp-enter");
     element?.classList.toggle("hidden");
@@ -11,29 +11,28 @@ const Editprofile = () => {
   const otpEnterElement = document.getElementById("otp-enter");
 
   const data = {
-    user: id,
-    photo: "",
+    picture: "",
     name: "",
     gender: "",
-    number: "",
+    mobile: "",
     oldPass: "",
     newPass: "",
     address: "",
     description: "",
   };
 
-  const handleSubmit = (e: { preventDefault: () => void }) => {
-    e.preventDefault();
-    axios
-      .post(`http://localhost:5000/api/${id}/editProfile`, data)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
-  };
+  // const handleSubmit = (e: { preventDefault: () => void }) => {
+  //   e.preventDefault();
+  //   axios
+  //     .post(`http://localhost:5000/api/${id}/editProfile`, data)
+  //     .then((res) => console.log(res))
+  //     .catch((err) => console.log(err));
+  // };
   return (
     <>
       <div className="flex text-black dark:text-white flex-col gap-5">
         <h1 className="text-3xl">Edit Profile</h1>
-        <form className="flex flex-col gap-2.5" onSubmit={handleSubmit}>
+        <form className="flex flex-col gap-2.5">
           <label className="">Photo</label>
           <div className="flex gap-5 flex-col">
             <img
@@ -44,9 +43,9 @@ const Editprofile = () => {
             />
             <input
               className="file:cursor-pointer w-fit h-fit bg-slate-500 p-2 file:px-2 file:text-white file:bg-yellow-500 rounded-xs file:rounded "
-              type="file"
+              type="text"
               name=""
-              onChange={(e) => (data.photo = e.target.value)}
+              onChange={(e) => (data.picture = e.target.value)}
               id="hello"
             />
           </div>
@@ -74,7 +73,7 @@ const Editprofile = () => {
               className="bg-slate-500 w-xs h-10 rounded  outline-0 p-2"
               placeholder="Enter Number"
               type="number"
-              onChange={(e) => (data.number = e.target.value)}
+              onChange={(e) => (data.mobile = e.target.value)}
             />
             <input
               id="otp-enter"

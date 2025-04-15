@@ -1,7 +1,7 @@
 const express = require("express");
 const { body } = require("express-validator");
 const { signup, login } = require("../controllers/auth.controller");
-const { editProfile } = require("../models/editProfile.model");
+// const { editProfile } = require("../models/editProfile.model");
 const validateRequest = require("../middleware/validateRequest");
 
 const router = express.Router();
@@ -34,12 +34,12 @@ router.post(
   login
 );
 
-router.get("/api/:id/editProfile", (req, res) => {
-  const data = req.body.data;
-  editProfile
-    .create(data)
-    .then((result) => res.json(result))
-    .catch((err) => res.json(err));
-});
+// router.get("/api/:id/editProfile", (req, res) => {
+//   const data = req.body.data;
+//   editProfile
+//     .create(data)
+//     .then((result) => res.json(result))
+//     .catch((err) => res.json(err));
+// });
 
 module.exports = router;
