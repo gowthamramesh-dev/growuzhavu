@@ -1,23 +1,10 @@
 import i18n from "i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import { initReactI18next } from "react-i18next";
+import backend from "i18next-http-backend";
 
-i18n
-  .use(LanguageDetector)
-  .use(initReactI18next)
-  .init({
-    debug: true,
-    lng: "en",
-    resources: {
-      en: {
-        translation: {
-          title: "GrowUzhavu",
-        },
-      },
-      tml: {
-        translation: {
-          title: "குரோஉழவு",
-        },
-      },
-    },
-  });
+i18n.use(LanguageDetector).use(initReactI18next).use(backend).init({
+  debug: true,
+  fallbackLng: "en",
+  returnObjects: true,
+});

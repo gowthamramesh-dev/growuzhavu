@@ -4,7 +4,7 @@ const History = () => {
   const [history, setHistory] = useState(false);
   return (
     <>
-      <div className="h-dvh w-full flex  items-center justify-center">
+      <div className="h-screen w-full flex  items-center justify-center">
         {history ? (
           <div onClick={() => setHistory(false)} className="">
             History

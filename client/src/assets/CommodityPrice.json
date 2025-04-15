@@ -1,0 +1,543 @@
+{
+  "commodities": [
+    {
+      "id": "tomato",
+      "name": "Tomato",
+      "qty": "1750",
+      "min": "10",
+      "max": "15"
+    },
+    {
+      "id": "potato",
+      "name": "Potato",
+      "qty": "950",
+      "min": "24",
+      "max": "30"
+    },
+    {
+      "id": "small-onion",
+      "name": "Small Onion",
+      "qty": "370",
+      "min": "40",
+      "max": "50"
+    },
+    {
+      "id": "big-onion",
+      "name": "Big Onion",
+      "qty": "700",
+      "min": "30",
+      "max": "35"
+    },
+    {
+      "id": "chilli",
+      "name": "Chilli",
+      "qty": "300",
+      "min": "40",
+      "max": "48"
+    },
+    {
+      "id": "brinjal",
+      "name": "Brinjal",
+      "qty": "280",
+      "min": "40",
+      "max": "48"
+    },
+    {
+      "id": "bhendi",
+      "name": "Bhendi",
+      "qty": "340",
+      "min": "24",
+      "max": "30"
+    },
+    {
+      "id": "drumstick",
+      "name": "Drumstick",
+      "qty": "270",
+      "min": "30",
+      "max": "40"
+    },
+    {
+      "id": "ribbed-gourd",
+      "name": "Ribbed gourd",
+      "qty": "250",
+      "min": "30",
+      "max": "40"
+    },
+    {
+      "id": "bottle-gourd",
+      "name": "Bottle Gourd",
+      "qty": "320",
+      "min": "12",
+      "max": "16"
+    },
+    {
+      "id": "snake-gourd",
+      "name": "Snake gourd",
+      "qty": "250",
+      "min": "16",
+      "max": "20"
+    },
+    {
+      "id": "bitter-gourd",
+      "name": "Bitter Gourd",
+      "qty": "210",
+      "min": "36",
+      "max": "40"
+    },
+    {
+      "id": "coconut",
+      "name": "Coconut",
+      "qty": "3450",
+      "min": "25",
+      "max": "35"
+    },
+    {
+      "id": "radish",
+      "name": "Radish",
+      "qty": "240",
+      "min": "16",
+      "max": "20"
+    },
+    {
+      "id": "beans",
+      "name": "Beans",
+      "qty": "230",
+      "min": "60",
+      "max": "80"
+    },
+    {
+      "id": "avarai",
+      "name": "Avarai",
+      "qty": "270",
+      "min": "56",
+      "max": "60"
+    },
+    {
+      "id": "carrot",
+      "name": "Carrot",
+      "qty": "300",
+      "min": "30",
+      "max": "36"
+    },
+    {
+      "id": "mango-fruit",
+      "name": "Mango (fruit)",
+      "qty": "190",
+      "min": "100",
+      "max": "120"
+    },
+    {
+      "id": "banana-fruit",
+      "name": "Banana (fruit)",
+      "qty": "920",
+      "min": "40",
+      "max": "80"
+    },
+    {
+      "id": "ginger",
+      "name": "Ginger",
+      "qty": "200",
+      "min": "60",
+      "max": "70"
+    },
+    {
+      "id": "sapota",
+      "name": "sapota",
+      "qty": "180",
+      "min": "40",
+      "max": "50"
+    },
+    {
+      "id": "guava",
+      "name": "Guava",
+      "qty": "280",
+      "min": "60",
+      "max": "80"
+    },
+    {
+      "id": "custard-apple",
+      "name": "Custard Apple",
+      "qty": "150",
+      "min": "60",
+      "max": "80"
+    },
+    {
+      "id": "pappaya",
+      "name": "Pappaya",
+      "qty": "600",
+      "min": "25",
+      "max": "30"
+    },
+    {
+      "id": "cluster-beans",
+      "name": "Cluster Beans",
+      "qty": "150",
+      "min": "36",
+      "max": "40"
+    },
+    {
+      "id": "ash-gourd",
+      "name": "Ash gourd",
+      "qty": "270",
+      "min": "10",
+      "max": "15"
+    },
+    {
+      "id": "elephant-foot-yam",
+      "name": "Elephant foot Yam",
+      "qty": "170",
+      "min": "60",
+      "max": "80"
+    },
+    {
+      "id": "mango-veg",
+      "name": "Mango (veg)",
+      "qty": "400",
+      "min": "30",
+      "max": "40"
+    },
+    {
+      "id": "tapioca",
+      "name": "Tapioca",
+      "qty": "270",
+      "min": "20",
+      "max": "25"
+    },
+    {
+      "id": "corn",
+      "name": "Corn",
+      "qty": "250",
+      "min": "15",
+      "max": "20"
+    },
+    {
+      "id": "amla",
+      "name": "Amla",
+      "qty": "170",
+      "min": "60",
+      "max": "80"
+    },
+    {
+      "id": "banana-veg",
+      "name": "Banana (veg)",
+      "qty": "750",
+      "min": "20",
+      "max": "25"
+    },
+    {
+      "id": "banana-flower",
+      "name": "Banana flower",
+      "qty": "350",
+      "min": "15",
+      "max": "20"
+    },
+    {
+      "id": "banana-stem",
+      "name": "Banana stem",
+      "qty": "400",
+      "min": "5",
+      "max": "10"
+    },
+    {
+      "id": "banana-leaf",
+      "name": "Banana Leaf",
+      "qty": "980",
+      "min": "25",
+      "max": "30"
+    },
+    {
+      "id": "greens",
+      "name": "Greens",
+      "qty": "200",
+      "min": "20",
+      "max": "30"
+    },
+    {
+      "id": "coriander-leaf",
+      "name": "Coriander Leaf",
+      "qty": "180",
+      "min": "40",
+      "max": "50"
+    },
+    {
+      "id": "curry-leaf",
+      "name": "Curry Leaf",
+      "qty": "140",
+      "min": "40",
+      "max": "50"
+    },
+    {
+      "id": "mint-leaf",
+      "name": "Mint Leaf",
+      "qty": "200",
+      "min": "35",
+      "max": "40"
+    },
+    {
+      "id": "pumpkin",
+      "name": "Pumpkin",
+      "qty": "280",
+      "min": "25",
+      "max": "30"
+    },
+    {
+      "id": "lemon",
+      "name": "Lemon",
+      "qty": "240",
+      "min": "80",
+      "max": "120"
+    },
+    {
+      "id": "beetroot",
+      "name": "Beetroot",
+      "qty": "230",
+      "min": "24",
+      "max": "30"
+    },
+    {
+      "id": "chow-chow",
+      "name": "Chow Chow",
+      "qty": "210",
+      "min": "36",
+      "max": "40"
+    },
+    {
+      "id": "cabbage",
+      "name": "Cabbage",
+      "qty": "570",
+      "min": "16",
+      "max": "20"
+    },
+    {
+      "id": "garlic",
+      "name": "garlic",
+      "qty": "610",
+      "min": "120",
+      "max": "160"
+    },
+    {
+      "id": "colacasia",
+      "name": "Colacasia ",
+      "qty": "200",
+      "min": "40",
+      "max": "48"
+    },
+    {
+      "id": "sweet-potato",
+      "name": "Sweet Potato",
+      "qty": "170",
+      "min": "30",
+      "max": "36"
+    },
+    {
+      "id": "kovvaikai",
+      "name": "Kovvaikai",
+      "qty": "200",
+      "min": "20",
+      "max": "30"
+    },
+    {
+      "id": "cucumber",
+      "name": "Cucumber",
+      "qty": "100",
+      "min": "20",
+      "max": "30"
+    },
+    {
+      "id": "cauliflower",
+      "name": "Cauliflower",
+      "qty": "410",
+      "min": "25",
+      "max": "35"
+    },
+    {
+      "id": "groundnut",
+      "name": "Groundnut",
+      "qty": "70",
+      "min": "60",
+      "max": "70"
+    },
+    {
+      "id": "sweet-corn",
+      "name": "Sweet corn",
+      "qty": "280",
+      "min": "25",
+      "max": "30"
+    },
+    {
+      "id": "mushroom",
+      "name": "Mushroom",
+      "qty": "30",
+      "min": "200",
+      "max": "250"
+    },
+    {
+      "id": "knol-khol",
+      "name": "Knol Khol",
+      "qty": "200",
+      "min": "36",
+      "max": "40"
+    },
+    {
+      "id": "peas",
+      "name": "Peas",
+      "qty": "70",
+      "min": "120",
+      "max": "140"
+    },
+    {
+      "id": "capsicum",
+      "name": "Capsicum",
+      "qty": "170",
+      "min": "60",
+      "max": "80"
+    },
+    {
+      "id": "pomegranate",
+      "name": "Pomegranate",
+      "qty": "150",
+      "min": "120",
+      "max": "160"
+    },
+    {
+      "id": "grapes",
+      "name": "Grapes",
+      "qty": "270",
+      "min": "100",
+      "max": "120"
+    },
+    {
+      "id": "apple",
+      "name": "Apple",
+      "qty": "120",
+      "min": "180",
+      "max": "200"
+    },
+    {
+      "id": "orange",
+      "name": "Orange",
+      "qty": "230",
+      "min": "80",
+      "max": "100"
+    },
+    {
+      "id": "sweet-lime",
+      "name": "Sweet lime",
+      "qty": "280",
+      "min": "60",
+      "max": "80"
+    },
+    {
+      "id": "pinapple",
+      "name": "Pinapple",
+      "qty": "200",
+      "min": "25",
+      "max": "35"
+    },
+    {
+      "id": "muskmelon",
+      "name": "Muskmelon",
+      "qty": "370",
+      "min": "10",
+      "max": "15"
+    },
+    {
+      "id": "watermelon",
+      "name": "Watermelon",
+      "qty": "400",
+      "min": "10",
+      "max": "15"
+    },
+    {
+      "id": "sundaikai",
+      "name": "Sundaikai",
+      "qty": "70",
+      "min": "60",
+      "max": "80"
+    },
+    {
+      "id": "fig",
+      "name": "Fig",
+      "qty": "80",
+      "min": "60",
+      "max": "80"
+    },
+    {
+      "id": "citron-narthai",
+      "name": "Citron (Narthai)",
+      "qty": "200",
+      "min": "20",
+      "max": "25"
+    },
+    {
+      "id": "tamarind",
+      "name": "Tamarind",
+      "qty": "370",
+      "min": "100",
+      "max": "120"
+    },
+    {
+      "id": "bajji-chilli",
+      "name": "Bajji chilli",
+      "qty": "170",
+      "min": "60",
+      "max": "80"
+    },
+    {
+      "id": "kakatan",
+      "name": "kakatan",
+      "qty": "18",
+      "min": "300",
+      "max": "350"
+    },
+    {
+      "id": "rose",
+      "name": "Rose",
+      "qty": "69",
+      "min": "160",
+      "max": "180"
+    },
+    {
+      "id": "marigold",
+      "name": "Marigold",
+      "qty": "74",
+      "min": "180",
+      "max": "200"
+    },
+    {
+      "id": "tuberose",
+      "name": "Tuberose",
+      "qty": "28",
+      "min": "120",
+      "max": "140"
+    },
+    {
+      "id": "jasmine",
+      "name": "Jasmine",
+      "qty": "17",
+      "min": "400",
+      "max": "450"
+    },
+    {
+      "id": "crossandra",
+      "name": "crossandra",
+      "qty": "4",
+      "min": "800",
+      "max": "850"
+    },
+    {
+      "id": "tender-coconut",
+      "name": "Tender Coconut",
+      "qty": "3150",
+      "min": "20",
+      "max": "30"
+    },
+    {
+      "id": "pidikarunai",
+      "name": "Pidikarunai",
+      "qty": "200",
+      "min": "40",
+      "max": "60"
+    }
+  ]
+}

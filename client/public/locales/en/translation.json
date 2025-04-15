@@ -1,0 +1,34 @@
+{
+  "title": "GrowUzhavu",
+  "navbar": {
+    "topics": {
+      "one": "Marketplace",
+      "two": "Account"
+    },
+    "items": {
+      "profile": "Profile",
+      "market": "Market",
+      "explore": "Explore",
+      "created": "Created",
+      "chats": "Chats",
+      "history": "History",
+      "progress": "Progress",
+      "settings": "Settings"
+    }
+  },
+  "buttons": {
+    "foryou": "For You",
+    "top": "Top",
+    "latest": "Latest",
+    "post": "Post",
+    "history": "History",
+    "follow": "Follow",
+    "following": "Following",
+    "editprofile": "Edit Profile",
+    "login": "Login",
+    "signup": "Sign Up",
+    "logout": "Logout",
+    "farmer": "Farmer",
+    "buyer": "Buyer"
+  }
+}
