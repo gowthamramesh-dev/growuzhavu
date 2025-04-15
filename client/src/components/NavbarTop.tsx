@@ -17,6 +17,7 @@ const NavbarTop = () => {
   };
 
   const { t } = useTranslation();
+  const btn = t("buttons");
 
   return (
     <>
@@ -40,24 +41,24 @@ const NavbarTop = () => {
               id="ser"
             />
             <i
-              className="bi bi-search relative transform -translate-x-6 translate-y-1.5 lg:-translate-y-0 lg:-translate-x-6 h-2/3 hover:cursor-pointer text-green-500"
+              className="bi bi-search text-md border h-2/3 px-2.5 flex justify-center items-center hover:cursor-pointer text-green-500"
               onClick={searchBar}
             ></i>
           </div>
+          <LanguageSelector />
           <div className="hidden md:flex md:flex-row gap-3 items-center">
-            <LanguageSelector />
             <button
               className="rounded-xs text-sm lg:text-lg px-2 bg-yellow-500"
               type="button"
             >
-              <Link to="/farmer-signup">Farmer</Link>
+              <Link to="/farmer-signup">{btn.farmer}</Link>
             </button>
 
             <button
               className="rounded-xs text-sm lg:text-lg px-2 bg-yellow-500"
               type="button"
             >
-              <Link to="/buyer-signup">Buyer</Link>
+              <Link to="/buyer-signup">{btn.buyer}</Link>
             </button>
             <div className="group">
               <div className="border flex justify-center  items-center lg:text-3xl bg-white border-green-500 w-6 h-6 lg:w-10 lg:h-10 rounded-full">
@@ -66,7 +67,8 @@ const NavbarTop = () => {
               <div className="hidden absolute group-hover:flex z-20 top-11 lg:top-13 right-6 border border-green-500 bg-slate-100 dark:bg-slate-950 w-fit p-2">
                 <ul className="*:flex *:gap-2 *:hover:cursor-pointer lg:*:text-lg *:text-black *:dark:text-white *:text-sm">
                   <li>
-                    <i className="bi bi-box-arrow-right"></i>logout
+                    <i className="bi bi-box-arrow-right"></i>
+                    {btn.logout}
                   </li>
                 </ul>
               </div>

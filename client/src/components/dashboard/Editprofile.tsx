@@ -65,7 +65,7 @@ const Editprofile = () => {
             </button>
           </div>
           <label className="text-md">Password</label>
-          <div className="flex text-black dark:text-white gap-5">
+          <div className="flex flex-col lg:flex-row text-black dark:text-white gap-5">
             <input
               className="bg-slate-500 w-xs h-10 rounded  outline-0 p-2"
               placeholder="Old Password"
@@ -80,7 +80,7 @@ const Editprofile = () => {
           <label className="text-md">Address</label>
           <div className="">
             <textarea
-              className="bg-slate-500 text-black dark:text-white w-2xl h-20 rounded  outline-0 p-2 resize-none"
+              className="bg-slate-500 text-black dark:text-white w-xs h-30 lg:w-2xl lg:h-20 rounded  outline-0 p-2 resize-none"
               name=""
               id=""
               placeholder="Address: Door no, Street, Area, City, District."
@@ -90,7 +90,7 @@ const Editprofile = () => {
           <label className="text-md">Description</label>
           <div className="">
             <textarea
-              className="bg-slate-500 text-black dark:text-white w-2xl h-30 rounded  outline-0 p-2 resize-none"
+              className="bg-slate-500 text-black dark:text-white w-xs h-30 lg:w-2xl  rounded  outline-0 p-2 resize-none"
               name=""
               id=""
               placeholder="Description of the Dashboard."

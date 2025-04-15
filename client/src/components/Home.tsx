@@ -45,7 +45,7 @@ const Home = () => {
           <div className="flex bg-white dark:bg-slate-950 *:border *:border-green-500 gap-5">
             <div
               id="items"
-              className="p-3 flex justify-center lg:justify-start  flex-wrap gap-6 lg:w-5/6 w-full bg-white dark:bg-slate-950"
+              className="p-3 flex justify-center lg:justify-start  flex-wrap gap-6 h-fit lg:w-5/6 w-full bg-white dark:bg-slate-950"
             >
               {CommodityData.map((data) => (
                 <Link to={`/post/${data.id}`}>
@@ -95,7 +95,7 @@ const Home = () => {
                 </Link>
               ))}
             </div>
-            <div className="hidden border w-1/4 lg:flex ">
+            <div className="hidden border w-1/4 h-screen lg:flex overflow-scroll no-scrollbar">
               <HomePrice />
             </div>
           </div>

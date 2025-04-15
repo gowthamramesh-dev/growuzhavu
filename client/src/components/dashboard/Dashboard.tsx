@@ -3,11 +3,15 @@ import Editprofile from "./Editprofile";
 import { useState } from "react";
 import Post from "./Post";
 import History from "./History";
+import { useTranslation } from "react-i18next";
+import HomePrice from "../HomePrice";
 
 const Dashboard = () => {
   const { id } = useParams();
   const [currentComponent, setCurrentComponent] = useState("home");
   const [follow, setFollow] = useState(true);
+  const { t } = useTranslation();
+  const btn = t("buttons");
 
   const renderComponent = () => {
     switch (currentComponent) {
@@ -23,7 +27,7 @@ const Dashboard = () => {
   };
   return (
     <>
-      <div className="w-full h-dvh lg:p-3 flex gap-2">
+      <div className="w-full h-full lg:p-3 flex gap-2">
         <div className=" h-full lg:w-4/5 w-full">
           <div className="flex flex-col gap-3">
             <div className="w-full bg-slate-100 dark:bg-slate-950 p-1 lg:p-3 flex items-center lg:gap-3 h-28 lg:h-52 border border-green-500">
@@ -34,8 +38,8 @@ const Dashboard = () => {
               />
               <div className="w-4/5 flex justify-between p-2 h-full text-black dark:text-white  flex-wrap ">
                 <div className="h-full flex flex-col flex-wrap">
-                  <div className="lg:w-4/5 w-4/6 h-full flex flex-col justify-around flex-wrap overflow-hidden lg:justify-between">
-                    <div className="">
+                  <div className="lg:w-4/5 w-7/12 h-full flex flex-col justify-around flex-wrap overflow-hidden lg:justify-between">
+                    <div className="w-full">
                       <h1 className="text-md lg:text-4xl">{id}</h1>
                       <span className="text-xs text lg:text-lg">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -49,24 +53,26 @@ const Dashboard = () => {
                   </div>
                   <div className="flex flex-col text-white *:cursor-pointer gap-2 flex-wrap items-start h-full">
                     <button
-                      className="bg-yellow-500 px-0.5 lg:px-2 rounded-xs lg:rounded text-xs lg:text-lg"
+                      className="bg-yellow-500 px-1 flex lg:w-fit w-30  py-1 lg:px-2 rounded-xs lg:rounded text-xs lg:text-md"
                       type="button"
                       onClick={() => setCurrentComponent("editProfile")}
                     >
-                      <i className="bi bi-pencil-square"></i> Edit Profile
+                      <i className="bi bi-pencil-square"></i> {btn.editprofile}
                     </button>
                     <button
-                      className="bg-yellow-500 *:px-0.5 *:lg:px-2 rounded-xs lg:rounded text-xs lg:text-lg *:flex *:gap-2"
+                      className="bg-yellow-500 *:px-0.5 py-1 *:lg:px-2 rounded-xs lg:rounded text-xs lg:text-md *:flex *:gap-2"
                       type="button"
                       onClick={() => setFollow(!follow)}
                     >
                       {follow ? (
                         <div className="">
-                          <i className="bi bi-person-plus-fill"></i> Follow
+                          <i className="bi bi-person-plus-fill"></i>{" "}
+                          {btn.follow}
                         </div>
                       ) : (
                         <div className="">
-                          <i className="bi bi-person-check-fill"></i>Following
+                          <i className="bi bi-person-check-fill"></i>
+                          {btn.following}
                         </div>
                       )}
                     </button>
@@ -77,10 +83,10 @@ const Dashboard = () => {
             <div className=" h-dvh flex flex-col p-3 gap-5">
               <div className="flex gap-3 *:bg-yellow-500 *:rounded-xs *:cursor-pointer  *:px-2 *:text-md">
                 <button onClick={() => setCurrentComponent("post-page")}>
-                  Posts
+                  {btn.post}
                 </button>
                 <button onClick={() => setCurrentComponent("history-page")}>
-                  History
+                  {btn.history}
                 </button>
               </div>
               <div className="*:border bg-slate-100 text-black dark:text-white dark:bg-slate-950 *:border-green-500  *:p-3">
@@ -89,8 +95,8 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-        <div className="hidden bg-slate-100 text-black dark:text-white dark:bg-slate-950 lg:flex border border-green-500 w-1/5 ">
-          hello
+        <div className="hidden bg-slate-100 text-black dark:text-white dark:bg-slate-950 lg:flex border border-green-500 w-1/5 h-screen overflow-scroll no-scrollbar">
+          <HomePrice />
         </div>
       </div>
     </>
