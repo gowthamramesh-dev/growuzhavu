@@ -1,15 +1,39 @@
+import { useParams } from "react-router-dom";
+import axios from "axios";
+// import { useState } from "react";
+
 const Editprofile = () => {
+  const { id } = useParams();
   const mobile_otp = () => {
     const element = document.getElementById("otp-enter");
     element?.classList.toggle("hidden");
   };
   const otpEnterElement = document.getElementById("otp-enter");
 
+  const data = {
+    user: id,
+    photo: "",
+    name: "",
+    gender: "",
+    number: "",
+    oldPass: "",
+    newPass: "",
+    address: "",
+    description: "",
+  };
+
+  const handleSubmit = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    axios
+      .post(`http://localhost:5000/api/${id}/editProfile`, data)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
   return (
     <>
       <div className="flex text-black dark:text-white flex-col gap-5">
         <h1 className="text-3xl">Edit Profile</h1>
-        <form className="flex flex-col gap-2.5">
+        <form className="flex flex-col gap-2.5" onSubmit={handleSubmit}>
           <label className="">Photo</label>
           <div className="flex gap-5 flex-col">
             <img
@@ -22,6 +46,7 @@ const Editprofile = () => {
               className="file:cursor-pointer w-fit h-fit bg-slate-500 p-2 file:px-2 file:text-white file:bg-yellow-500 rounded-xs file:rounded "
               type="file"
               name=""
+              onChange={(e) => (data.photo = e.target.value)}
               id="hello"
             />
           </div>
@@ -30,16 +55,18 @@ const Editprofile = () => {
             className="bg-slate-500 text-black dark:text-white w-xs h-10 rounded outline-0 p-2"
             placeholder="Enter Name"
             type="text"
+            onChange={(e) => (data.name = e.target.value)}
           />
           <label className="text-md">Gender</label>
           <select
             className="bg-slate-500 w-xs h-10 rounded text-black dark:text-white outline-0 p-2"
             name=""
             id="profilePhoto"
+            onChange={(e) => (data.gender = e.target.value)}
           >
-            <option value="">Male</option>
-            <option value="">female</option>
-            <option value="">Others</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Others">Others</option>
           </select>
           <label className="text-md">Number</label>
           <div className="flex flex-col text-black dark:text-white gap-5">
@@ -47,6 +74,7 @@ const Editprofile = () => {
               className="bg-slate-500 w-xs h-10 rounded  outline-0 p-2"
               placeholder="Enter Number"
               type="number"
+              onChange={(e) => (data.number = e.target.value)}
             />
             <input
               id="otp-enter"
@@ -70,11 +98,13 @@ const Editprofile = () => {
               className="bg-slate-500 w-xs h-10 rounded  outline-0 p-2"
               placeholder="Old Password"
               type="password"
+              onChange={(e) => (data.oldPass = e.target.value)}
             />
             <input
               className="bg-slate-500 w-xs h-10 rounded  outline-0 p-2"
               placeholder="New Password"
               type="password"
+              onChange={(e) => (data.newPass = e.target.value)}
             />
           </div>
           <label className="text-md">Address</label>
@@ -85,6 +115,7 @@ const Editprofile = () => {
               id=""
               placeholder="Address: Door no, Street, Area, City, District."
               rows={2}
+              onChange={(e) => (data.address = e.target.value)}
             />
           </div>
           <label className="text-md">Description</label>
@@ -95,6 +126,7 @@ const Editprofile = () => {
               id=""
               placeholder="Description of the Dashboard."
               rows={2}
+              onChange={(e) => (data.description = e.target.value)}
             />
           </div>
           <button
