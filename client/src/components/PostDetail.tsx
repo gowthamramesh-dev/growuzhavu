@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const PostDetail = () => {
   const { id } = useParams();
-  const dataId = parseInt(id);
+  const dataId = +id;
   const thisData = CommodityData.find((item) => item.id === dataId);
   return (
     <>
@@ -14,7 +14,7 @@ const PostDetail = () => {
           <div className="">
             <div className="flex flex-col gap-2 ">
               <h1 className="text-sm lg:text-2xl">
-                Home {">"} post {">"} {thisData?.name}
+                Home {"/"} post {"/"} {thisData?.name}
               </h1>
               <div className="w-full flex justify-center items-center ">
                 <img

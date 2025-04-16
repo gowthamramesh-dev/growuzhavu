@@ -2,6 +2,8 @@
 // import axios from "axios";
 // import { useState } from "react";
 
+import { useState } from "react";
+
 const Editprofile = () => {
   // const { id } = useParams();
   const mobile_otp = () => {
@@ -10,7 +12,7 @@ const Editprofile = () => {
   };
   const otpEnterElement = document.getElementById("otp-enter");
 
-  const data = {
+  const [data, setData] = useState({
     picture: "",
     name: "",
     gender: "",
@@ -19,6 +21,27 @@ const Editprofile = () => {
     newPass: "",
     address: "",
     description: "",
+  });
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setData(function (prevData) {
+          return {
+            ...prevData,
+            picture: reader.result,
+          };
+        });
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+  const handleInputChange = (e: {
+    target: { name: string; value: string };
+  }) => {
+    const { name, value } = e.target;
+    setData((prevData) => ({ ...prevData, [name]: value }));
   };
 
   // const handleSubmit = (e: { preventDefault: () => void }) => {
@@ -32,20 +55,25 @@ const Editprofile = () => {
     <>
       <div className="flex text-black dark:text-white flex-col gap-5">
         <h1 className="text-3xl">Edit Profile</h1>
-        <form className="flex flex-col gap-2.5">
+        <form
+          className="flex flex-col gap-2.5"
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
+        >
           <label className="">Photo</label>
           <div className="flex gap-5 flex-col">
             <img
-              className="w-44 h-50 border border-green-500"
+              className="w-44 h-50 border object-cover  border-green-500"
               id="pro-ph"
-              src=""
+              src={data.picture}
               alt=""
             />
             <input
               className="file:cursor-pointer w-fit h-fit bg-slate-500 p-2 file:px-2 file:text-white file:bg-yellow-500 rounded-xs file:rounded "
-              type="text"
+              type="file"
               name=""
-              onChange={(e) => (data.picture = e.target.value)}
+              onChange={handleFileChange}
               id="hello"
             />
           </div>
@@ -53,15 +81,18 @@ const Editprofile = () => {
           <input
             className="bg-slate-500 text-black dark:text-white w-xs h-10 rounded outline-0 p-2"
             placeholder="Enter Name"
+            name="name"
             type="text"
-            onChange={(e) => (data.name = e.target.value)}
+            value={data.name}
+            onChange={handleInputChange}
           />
           <label className="text-md">Gender</label>
           <select
             className="bg-slate-500 w-xs h-10 rounded text-black dark:text-white outline-0 p-2"
-            name=""
+            name="gender"
             id="profilePhoto"
-            onChange={(e) => (data.gender = e.target.value)}
+            value={data.gender}
+            onChange={handleInputChange}
           >
             <option value="Male">Male</option>
             <option value="Female">Female</option>
@@ -72,8 +103,10 @@ const Editprofile = () => {
             <input
               className="bg-slate-500 w-xs h-10 rounded  outline-0 p-2"
               placeholder="Enter Number"
+              value={data.mobile}
+              name="mobile"
               type="number"
-              onChange={(e) => (data.mobile = e.target.value)}
+              onChange={handleInputChange}
             />
             <input
               id="otp-enter"
@@ -86,7 +119,7 @@ const Editprofile = () => {
               type="button"
               onClick={mobile_otp}
             >
-              {otpEnterElement?.classList.contains("hidden")
+              {otpEnterElement?.classList.toggle("hidden")
                 ? "Send OTP"
                 : "Enter OTP"}
             </button>
@@ -97,35 +130,41 @@ const Editprofile = () => {
               className="bg-slate-500 w-xs h-10 rounded  outline-0 p-2"
               placeholder="Old Password"
               type="password"
-              onChange={(e) => (data.oldPass = e.target.value)}
+              name="oldPass"
+              value={data.oldPass}
+              onChange={handleInputChange}
             />
             <input
               className="bg-slate-500 w-xs h-10 rounded  outline-0 p-2"
               placeholder="New Password"
               type="password"
-              onChange={(e) => (data.newPass = e.target.value)}
+              name="newPass"
+              value={data.newPass}
+              onChange={handleInputChange}
             />
           </div>
           <label className="text-md">Address</label>
           <div className="">
             <textarea
               className="bg-slate-500 text-black dark:text-white w-xs h-30 lg:w-2xl lg:h-20 rounded  outline-0 p-2 resize-none"
-              name=""
               id=""
               placeholder="Address: Door no, Street, Area, City, District."
               rows={2}
-              onChange={(e) => (data.address = e.target.value)}
+              name="address"
+              value={data.address}
+              onChange={handleInputChange}
             />
           </div>
           <label className="text-md">Description</label>
           <div className="">
             <textarea
               className="bg-slate-500 text-black dark:text-white w-xs h-30 lg:w-2xl  rounded  outline-0 p-2 resize-none"
-              name=""
               id=""
               placeholder="Description of the Dashboard."
               rows={2}
-              onChange={(e) => (data.description = e.target.value)}
+              name="description"
+              value={data.description}
+              onChange={handleInputChange}
             />
           </div>
           <button
