@@ -46,19 +46,15 @@ const NavbarTop = () => {
             ></i>
           </div>
           <LanguageSelector />
+          <Link to="user-1/create-post">
+            <i className="bi text-2xl text-green-500 bi-plus-square"></i>
+          </Link>
           <div className="hidden md:flex md:flex-row gap-3 items-center">
             <button
               className="rounded-xs text-sm lg:text-lg px-2 bg-yellow-500"
               type="button"
             >
-              <Link to="/farmer-signup">{btn.farmer}</Link>
-            </button>
-
-            <button
-              className="rounded-xs text-sm lg:text-lg px-2 bg-yellow-500"
-              type="button"
-            >
-              <Link to="/buyer-signup">{btn.buyer}</Link>
+              <Link to="/signup">{btn.signup}</Link>
             </button>
             <div className="group">
               <div className="border flex justify-center  items-center lg:text-3xl bg-white border-green-500 w-6 h-6 lg:w-10 lg:h-10 rounded-full">
