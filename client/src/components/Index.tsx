@@ -27,8 +27,7 @@ const Index = () => (
               <Route path="/" element={<Home />} />
               <Route path="/post/:id" element={<PostDetail />} />
               <Route path="/dashboard/:id" element={<Dashboard />} />
-              <Route path="/farmer-signup" element={<Login />} />
-              <Route path="/buyer-signup" element={<Blogin />} />
+              <Route path="/signup" element={<Login />} />
               <Route path="/:id/create-post" element={<PostCreation />} />
             </Routes>
           </div>

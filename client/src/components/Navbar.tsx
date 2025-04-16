@@ -44,6 +44,13 @@ const Navbar = () => {
               {topics.two}
             </label>
             <ul className=" *:border *:flex *:overflow-hidden *:px-1 *:hover:bg-slate-200 *:hover:dark:bg-slate-800 *:border-green-500 *:dark:border-green-500 lg:*:justify-center **:*:text-black **:*:dark:text-white lg:group-hover:*:justify-normal lg:group-hover:*:px-2 flex flex-col gap-5 lg:group-hover:gap-3 **:gap-1 lg:**:gap-3 *:**:flex *:**:items-center  *:**:py-1  **:h-full *:hover:border-green-500">
+              <Link onClick={handleNav} to="/user-1/create-post">
+                <i className="bi text-2xl bi-plus-square"></i>
+                <label className="lg:hidden lg:group-hover:flex">
+                  {items.create}
+                </label>
+              </Link>
+
               <Link onClick={handleNav} to="/dashboard/user-1">
                 <i className="bi text-2xl bi-list-check"></i>
                 <label className="lg:hidden lg:group-hover:flex">
@@ -69,13 +76,6 @@ const Navbar = () => {
                 <i className="bi text-2xl bi-hourglass-split"></i>
                 <label className="lg:hidden lg:group-hover:flex">
                   {items.progress}
-                </label>
-              </Link>
-
-              <Link onClick={handleNav} to="/dashboard/user-1">
-                <i className="bi text-2xl bi-gear"></i>
-                <label className="lg:hidden lg:group-hover:flex">
-                  {items.settings}
                 </label>
               </Link>
             </ul>

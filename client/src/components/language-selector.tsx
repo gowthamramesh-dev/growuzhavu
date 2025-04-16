@@ -14,7 +14,7 @@ const LanguageSelector = () => {
     <>
       <div className="">
         <select
-          className="outline-0 *:bg-slate-950 *:rounded-none"
+          className="outline-0 border flex items-center justify-center rounded-xs border-green-500 py-0.5 px-2 *:bg-slate-950 *:rounded-none"
           value={i18n.language} // Set the current language as the selected value
           onChange={(e) => changeLanguage(e.target.value)} // Use onChange to handle language change
         >
