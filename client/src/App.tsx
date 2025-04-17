@@ -1,8 +1,10 @@
-import Index from "./components/Index";
+// import Index from "./components/Index";
+import HomePage from "./HomePage";
+
 function App() {
   return (
     <>
-      <Index />
+      <HomePage />
     </>
   );
 }
