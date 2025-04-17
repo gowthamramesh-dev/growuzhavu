@@ -50,7 +50,7 @@ const Home = () => {
               {CommodityData.map((data) => (
                 <Link to={`/post/${data.id}`}>
                   <div
-                    className="w-72 h-80 lg:w-80 lg:h-96 border border-green-500"
+                    className="w-72 h-80 lg:w-80 lg:h-96 border border-green-500 shadow-md shadow-green-700"
                     key={data.id}
                   >
                     <div className="w-full h-full flex flex-col items-center bg-white dark:bg-slate-950 p-1.5 lg:p-3">

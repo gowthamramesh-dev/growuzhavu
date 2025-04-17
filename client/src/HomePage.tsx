@@ -15,18 +15,17 @@ const HomePage = () => {
             src={Banner}
             alt=""
           />
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-2xl lg:text-4xl text-white">
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-2xl lg:text-4xl text-white font-bold">
             A platform for Buy and Sell Commodities Between Farmer and Local
             Market.
             <Link
               to="/signup"
-              className="text-md lg:text-2xl bg-yellow-500 hover:bg-yellow-600 px-2 py-0.5 flex items-center justify-center rounded-xs"
+              className="font-normal text-md lg:text-2xl bg-yellow-500 hover:bg-yellow-600 px-2 py-0.5 flex items-center justify-center rounded-xs"
             >
               SignUp
             </Link>
           </div>
         </div>
-        <div className="h-dvh bg-green-800">hello</div>
       </div>
     </>
   );
