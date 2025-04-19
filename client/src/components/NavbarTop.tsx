@@ -6,6 +6,15 @@ const NavbarTop = () => {
   const handleDark = () => {
     const element = document.getElementById("html-dark");
     element?.classList.toggle("dark");
+    const element1 = document.getElementById("toggle-btn");
+
+    if (element1?.classList.contains("bi-toggle-on")) {
+      element1?.classList.remove("bi-toggle-on");
+      element1?.classList.add("bi-toggle-off");
+    } else {
+      element1?.classList.remove("bi-toggle-off");
+      element1?.classList.add("bi-toggle-on");
+    }
   };
   const handleNav = () => {
     const element = document.getElementById("nav");
@@ -21,10 +30,10 @@ const NavbarTop = () => {
 
   return (
     <>
-      <div className="flex justify-center items-center p-2 h-full gap-5 lg:gap-0 bg-slate-100 dark:bg-slate-950 border-b border-green-500">
+      <div className="flex justify-center items-center p-2 h-full gap-5 lg:gap-0 bg-slate-950 border-b border-green-500">
         <div className="w-full h-full flex justify-between items-center ">
           <div
-            className="lg:text-3xl flex text-black dark:text-white justify-center items-center gap-1 "
+            className="lg:text-3xl flex text-white justify-center items-center gap-1 "
             id="logo"
           >
             <i
@@ -35,7 +44,7 @@ const NavbarTop = () => {
           </div>
           <div className="h-full w-full lg:w-2/4 flex lg:justify-center justify-end items-center ">
             <input
-              className="h-2/3 hidden w-2/3 lg:flex lg:w-full text-black dark:text-white  px-1 border border-green-500 outline-0"
+              className="h-2/3 hidden w-2/3 lg:flex lg:w-full text-white  px-1 border border-green-500 outline-0"
               type="text"
               name=""
               id="ser"
@@ -60,8 +69,8 @@ const NavbarTop = () => {
               <div className="border flex justify-center  items-center lg:text-3xl bg-white border-green-500 w-6 h-6 lg:w-10 lg:h-10 rounded-full">
                 <i className="bi bi-person-fill text-green-500 lg:text-2xl"></i>
               </div>
-              <div className="hidden absolute group-hover:flex z-20 top-11 lg:top-13 right-6 border border-green-500 bg-slate-100 dark:bg-slate-950 w-fit p-2">
-                <ul className="*:flex *:gap-2 *:hover:cursor-pointer lg:*:text-lg *:text-black *:dark:text-white *:text-sm">
+              <div className="hidden absolute group-hover:flex z-20 top-11 lg:top-13 right-6 border border-green-500 bg-slate-950 w-fit p-2">
+                <ul className="*:flex *:gap-2 *:hover:cursor-pointer lg:*:text-lg *:text-white *:text-sm">
                   <li>
                     <i className="bi bi-box-arrow-right"></i>
                     {btn.logout}
@@ -72,7 +81,8 @@ const NavbarTop = () => {
             {/* <div className="">User</div> */}
             <div>
               <i
-                className="bi bi-toggle-on h-full w-full text-2xl text-black dark:text-white lg:text-3xl"
+                className="bi bi-toggle-on h-full w-full text-2xl text-white lg:text-3xl"
+                id="toggle-btn"
                 onClick={handleDark}
               ></i>
             </div>

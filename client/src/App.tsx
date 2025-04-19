@@ -1,11 +1,11 @@
-// import Index from "./components/Index";
-import HomePage from "./HomePage";
+import Index from "./components/Index";
+// import HomePage from "./HomePage";
 
 function App() {
   return (
     <>
-      <HomePage />
-      {/* <Index /> */}
+      {/* <HomePage /> */}
+      <Index />
     </>
   );
 }

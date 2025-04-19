@@ -42,10 +42,10 @@ const Home = () => {
               <i className="bi text-black dark:text-white bi-sort-down-alt hover:cursor-pointer"></i>
             </div>
           </div>
-          <div className="flex bg-white dark:bg-slate-950 *:border *:border-green-500 gap-5">
+          <div className="flex  *:border *:border-green-500 gap-5">
             <div
               id="items"
-              className="p-3 flex justify-center lg:justify-start  flex-wrap gap-6 h-fit lg:w-5/6 w-full bg-white dark:bg-slate-950"
+              className="p-3 flex justify-center lg:justify-start  flex-wrap gap-6 h-fit lg:w-5/6 w-full bg-slate-950"
             >
               {CommodityData.map((data) => (
                 <Link to={`/post/${data.id}`}>
@@ -53,7 +53,7 @@ const Home = () => {
                     className="w-72 h-80 lg:w-80 lg:h-96 border border-green-500 shadow-md shadow-green-700"
                     key={data.id}
                   >
-                    <div className="w-full h-full flex flex-col items-center bg-white dark:bg-slate-950 p-1.5 lg:p-3">
+                    <div className="w-full h-full flex flex-col items-center bg-slate-950 p-1.5 lg:p-3">
                       <img
                         className="w-full h-48 lg:h-4/6 border border-green-500"
                         src={data.picture}
@@ -62,7 +62,7 @@ const Home = () => {
                       <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-full flex justify-center items-center absolute z-0 transform translate-x-25 translate-y-2 lg:translate-x-27 lg:translate-y-2  bg-white  border border-green-500">
                         <i className="bi bi-person-fill  text-gray-700 text-4xl"></i>
                       </div>
-                      <div className="w-full h-2/6 flex text-black dark:text-white justify-start">
+                      <div className="w-full h-2/6 flex text-white justify-start">
                         <div className="flex flex-col justify-around">
                           <h1 className=" font-bold flex justify-between">
                             <div className="flex items-baseline text-sm lg:text-md gap-1">
@@ -95,7 +95,7 @@ const Home = () => {
                 </Link>
               ))}
             </div>
-            <div className="hidden border w-1/4 h-screen lg:flex overflow-scroll no-scrollbar">
+            <div className="hidden border w-1/4 h-screen lg:flex overflow-scroll no-scrollbar bg-slate-950">
               <HomePrice />
             </div>
           </div>

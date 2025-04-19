@@ -6,6 +6,7 @@ import Dashboard from "./dashboard/Dashboard.tsx";
 import Login from "./Login.tsx";
 import PostDetail from "./PostDetail.tsx";
 import PostCreation from "./PostCreation.tsx";
+import History from "./History1.tsx";
 
 const Index = () => (
   <>
@@ -27,6 +28,7 @@ const Index = () => (
               <Route path="/post/:id" element={<PostDetail />} />
               <Route path="/dashboard/:id" element={<Dashboard />} />
               <Route path="/signup" element={<Login />} />
+              <Route path="/:id/history" element={<History />} />
               <Route path="/:id/create-post" element={<PostCreation />} />
             </Routes>
           </div>
