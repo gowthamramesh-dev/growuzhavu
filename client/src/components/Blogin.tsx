@@ -6,7 +6,7 @@ const Blogin = () => {
     <>
       <div className="w-full h-full">
         {signup ? (
-          <div className="h-full py-4 flex *:dark:text-white *:text-black flex-col gap-2">
+          <div className="h-full py-4 flex *:text-white  flex-col gap-2">
             <input
               type="text"
               className="w-full h-2/12 border border-green-500 outline-0 p-2 rounded"

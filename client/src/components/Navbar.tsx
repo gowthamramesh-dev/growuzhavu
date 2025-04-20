@@ -58,7 +58,7 @@ const Navbar = () => {
                 </label>
               </Link>
 
-              <Link onClick={handleNav} to="/dashboard/user-1">
+              <Link onClick={handleNav} to="/user-1/chats">
                 <i className="bi text-2xl bi-chat-left-dots"></i>
                 <label className="lg:hidden lg:group-hover:flex">
                   {items.chats}

@@ -7,6 +7,7 @@ import Login from "./Login.tsx";
 import PostDetail from "./PostDetail.tsx";
 import PostCreation from "./PostCreation.tsx";
 import History from "./History1.tsx";
+import Chats from "./Chats.tsx";
 
 const Index = () => (
   <>
@@ -25,6 +26,7 @@ const Index = () => (
           <div className="w-full m-2 lg:ml-14 mt-20 lg:mt-14">
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/:id/chats/" element={<Chats />} />
               <Route path="/post/:id" element={<PostDetail />} />
               <Route path="/dashboard/:id" element={<Dashboard />} />
               <Route path="/signup" element={<Login />} />
