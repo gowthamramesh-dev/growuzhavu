@@ -2,6 +2,7 @@ import CommodityData from "../assets/CommodityList.json";
 import { useParams } from "react-router-dom";
 
 import { Link } from "react-router-dom";
+import HomePrice from "./HomePrice";
 
 const PostDetail = () => {
   const { id } = useParams();
@@ -64,7 +65,9 @@ const PostDetail = () => {
             <div className=""></div>
           </div>
         </div>
-        <div className="w-1/4 hidden lg:flex"></div>
+        <div className="hidden border w-1/4 *:h-screen lg:flex overflow-scroll no-scrollbar bg-slate-950">
+          <HomePrice />
+        </div>
       </div>
     </>
   );
