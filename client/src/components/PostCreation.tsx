@@ -45,7 +45,6 @@ const PostCreation = () => {
   };
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
-    e.preventDefault();
     // Optional basic validation
     if (
       !data.commodityName ||
@@ -66,6 +65,8 @@ const PostCreation = () => {
       console.error("Error during post creation:", err);
       alert("Failed to create post");
     }
+
+    location.reload();
   };
 
   return (

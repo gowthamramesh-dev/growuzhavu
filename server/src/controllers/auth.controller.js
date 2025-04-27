@@ -97,21 +97,15 @@ const getPosts = async (req, res) => {
   const { id } = req.body;
 
   try {
-    const post = await createPostsModel.findOne({ author: id });
-    if (!post) return res.status(400).json({ msg: "Invalid credentials" });
-    console.log(post);
+    const posts = await createPostsModel.find({ author: id });
+    if (!posts || posts.length === 0)
+      return res.status(400).json({ msg: "No posts found" });
 
-    res.json({
-      _id: post._id,
-      author: post.author,
-      picture: post.picture,
-      commodityName: post.commodityName,
-      commodityPrice: post.commodityPrice,
-      commodityDescription: post.commodityDescription,
-      date: post.date,
-      time: post.time,
-    });
+    console.log(posts);
+
+    res.json(posts);
   } catch (err) {
+    console.error(err);
     res.status(500).json({ msg: "Server Error" });
   }
 };
