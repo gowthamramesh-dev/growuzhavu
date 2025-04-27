@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { useState } from "react";
+import axios from "axios";
 
 const PostCreation = () => {
   const { id } = useParams();
@@ -11,10 +12,11 @@ const PostCreation = () => {
   const time = `${h % 12 || 12}:${m < 10 ? "0" + m : m} ${ampm}`;
 
   const [data, setData] = useState({
+    author: id,
     picture: "",
-    name: "",
-    price: "",
-    description: "",
+    commodityName: "",
+    commodityPrice: "",
+    commodityDescription: "",
     date: date,
     time: time,
   });
@@ -42,12 +44,27 @@ const PostCreation = () => {
     setData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSubmit = (e: { preventDefault: () => void }) => {
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     // Optional basic validation
-    if (!data.name || !data.price || !data.description) {
+    if (
+      !data.commodityName ||
+      !data.commodityPrice ||
+      !data.commodityDescription
+    ) {
       alert("Please fill all the fields");
       return;
+    }
+    try {
+      const res = await axios.post(
+        "http://localhost:5000/api/farmers/createPost",
+        data
+      );
+      console.log("Server Response:", res.data);
+      alert("Post created successfully!");
+    } catch (err) {
+      console.error("Error during post creation:", err);
+      alert("Failed to create post");
     }
   };
 
@@ -69,8 +86,8 @@ const PostCreation = () => {
             <label className="block mb-1 text-white">Commodity Name</label>
             <input
               type="text"
-              name="name"
-              value={data.name}
+              name="commodityName"
+              value={data.commodityName}
               onChange={handleInputChange}
               className="bg-slate-500 w-full h-10 rounded outline-none p-2"
             />
@@ -79,8 +96,8 @@ const PostCreation = () => {
             <label className="block mb-1 text-white">Commodity Price</label>
             <input
               type="text"
-              name="price"
-              value={data.price}
+              name="commodityPrice"
+              value={data.commodityPrice}
               onChange={handleInputChange}
               className="bg-slate-500 w-full h-10 rounded outline-none p-2"
             />
@@ -90,8 +107,8 @@ const PostCreation = () => {
               Commodity Description
             </label>
             <textarea
-              name="description"
-              value={data.description}
+              name="commodityDescription"
+              value={data.commodityDescription}
               onChange={handleInputChange}
               className="bg-slate-500 w-full h-28 rounded outline-none p-2"
             />
@@ -111,23 +128,23 @@ const PostCreation = () => {
           <div className="w-4/5 lg:w-3/4 h-52 lg:h-96 flex justify-center border border-green-500 items-center">
             {data.picture && (
               <img
-                className="w-4/5 lg:w-3/4 h-52 lg:h-96 border border-green-500 object-cover"
+                className="h-full w-full border border-green-500 object-cover"
                 src={data.picture}
-                alt={data.name || "Uploaded preview"}
+                alt={data.commodityName || "Uploaded preview"}
               />
             )}
           </div>
           <div className="w-4/5 lg:w-3/4 flex flex-col gap-2 lg:p-2">
             <div className="flex justify-between">
               <h1 className="text-md font-bold">
-                {data.name || "Commodity Name"}
+                {data.commodityName || "Commodity Name"}
               </h1>
               <h1 className="text-md lg:text-xl text-yellow-500">
-                Per k/g ₹ {data.price}
+                Per k/g ₹ {data.commodityPrice}
               </h1>
             </div>
             <p className="text-white">
-              {data.description || "This is the discription"}
+              {data.commodityDescription || "This is the discription"}
             </p>
             <div className="flex justify-between text-sm lg:text-lg text-gray-300">
               <span>Listed at: {data.date}</span>
@@ -146,7 +163,9 @@ const PostCreation = () => {
                       src="/default-avatar.png"
                       alt="Author"
                     />
-                    <h1 className="text-sm lg:text-xl text-white">{id}</h1>
+                    <h1 className="text-sm lg:text-xl text-white">
+                      {data.author || "Author Name"}
+                    </h1>
                   </div>
                   <i className="bi text-2xl bi-arrow-right-circle text-white"></i>
                 </Link>

@@ -33,7 +33,7 @@ const Dashboard = () => {
             <div className="w-full bg-slate-950 p-1 lg:p-3 flex items-center lg:gap-3 h-28 lg:h-52 border border-green-500">
               <img
                 className="w-1/5 border border-green-500 h-3/4 lg:h-full object-cover rounded outline-0"
-                src=""
+                src={""}
                 alt="hello"
               />
               <div className="w-4/5 flex justify-between p-2 h-full text-white  flex-wrap ">

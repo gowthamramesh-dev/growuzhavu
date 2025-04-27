@@ -1,6 +1,6 @@
 const express = require("express");
 const { body } = require("express-validator");
-const { signup, login } = require("../controllers/auth.controller");
+const { signup, login, createPost } = require("../controllers/auth.controller");
 const { editProfile } = require("../models/editProfile.model");
 const validateRequest = require("../middleware/validateRequest");
 
@@ -14,11 +14,13 @@ router.post(
     body("email").isEmail().withMessage("Valid email is required"),
     body("farmerId").not().isEmpty().withMessage("Farmer ID is required"),
     body("mobile")
-      .isLength({ min: 10 })
-      .withMessage("Valid mobile number is required"),
+      .isLength({ min: 10, max: 10 })
+      .withMessage("Valid mobile number is required")
+      .matches(/^[0-9]+$/)
+      .withMessage("Mobile number must contain only digits"),
     body("password")
-      .isLength({ min: 6 })
-      .withMessage("Password must be at least 6 characters"),
+      .isLength({ min: 8 })
+      .withMessage("Password must be at least 8 characters"),
   ],
   validateRequest,
   signup
@@ -34,12 +36,19 @@ router.post(
   login
 );
 
-router.get("/api/:id/editProfile", (req, res) => {
-  const data = req.body.data;
-  editProfile
-    .create(data)
-    .then((result) => res.json(result))
-    .catch((err) => res.json(err));
-});
+router.post(
+  "/createPost",
+  [
+    body("author").not().isEmpty(),
+    body("picture").not().isEmpty(),
+    body("commodityName").not().isEmpty(),
+    body("commodityPrice").not().isEmpty(),
+    body("commodityDescription").not().isEmpty(),
+    body("date").not().isEmpty(),
+    body("time").not().isEmpty(),
+  ],
+  validateRequest,
+  createPost
+);
 
 module.exports = router;
