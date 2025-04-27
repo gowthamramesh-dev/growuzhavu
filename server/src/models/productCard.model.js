@@ -18,16 +18,20 @@ const productSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    Date: {
-      type: Date.now,
+    date: {
+      type: String,
       required: true,
     },
-    Author: {
+    time: {
+      type: String,
+      required: true,
+    },
+    author: {
       type: String,
       required: true,
     },
   },
-  { timestamps: true }
+  { collection: "Post" }
 );
 
 module.exports = mongoose.model("productCard", productSchema);
