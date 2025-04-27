@@ -93,4 +93,27 @@ const createPost = async (req, res) => {
   }
 };
 
-module.exports = { signup, login, createPost };
+const getPosts = async (req, res) => {
+  const { id } = req.body;
+
+  try {
+    const post = await createPostsModel.findOne({ author: id });
+    if (!post) return res.status(400).json({ msg: "Invalid credentials" });
+    console.log(post);
+
+    res.json({
+      _id: post._id,
+      author: post.author,
+      picture: post.picture,
+      commodityName: post.commodityName,
+      commodityPrice: post.commodityPrice,
+      commodityDescription: post.commodityDescription,
+      date: post.date,
+      time: post.time,
+    });
+  } catch (err) {
+    res.status(500).json({ msg: "Server Error" });
+  }
+};
+
+module.exports = { signup, login, createPost, getPosts };
