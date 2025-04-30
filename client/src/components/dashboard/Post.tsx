@@ -30,7 +30,7 @@ const Post = () => {
 
   return (
     <>
-      <div className="h-screen *:bg-slate-950 *:p-3 *:border *:border-green-500 *:h-full">
+      <div className="h-full *:bg-slate-950 *:p-3 *:border *:border-green-500 *:h-full">
         {post ? (
           <div className="flex flex-wrap gap-5 justify-normal">
             {posts.length > 0 ? (
