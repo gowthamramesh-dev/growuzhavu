@@ -1,6 +1,11 @@
 const express = require("express");
 const { body } = require("express-validator");
-const { signup, login, createPost } = require("../controllers/auth.controller");
+const {
+  signup,
+  login,
+  createPost,
+  getPosts,
+} = require("../controllers/auth.controller");
 const { editProfile } = require("../models/editProfile.model");
 const validateRequest = require("../middleware/validateRequest");
 
@@ -50,5 +55,7 @@ router.post(
   validateRequest,
   createPost
 );
+
+router.post("/getPosts", getPosts);
 
 module.exports = router;

@@ -10,12 +10,12 @@ const PostDetail = () => {
   const thisData = CommodityData.find((item) => item.id === dataId);
   return (
     <>
-      <div className=" h-full lg:p-5 *:border *:border-green-500 *:h-full flex gap-5">
+      <div className=" h-full lg:p-5 *:border *:bg-slate-950 *:border-green-500 *:h-full flex gap-5">
         <div className="w-full lg:w-5/6 p-2">
           <div className="">
             <div className="flex flex-col gap-2 ">
               <h1 className="text-sm lg:text-2xl">
-                Home {"/"} post {"/"} {thisData?.name}
+                Home {"/"} post {"/"} {id}
               </h1>
               <div className="w-full flex justify-center items-center ">
                 <img

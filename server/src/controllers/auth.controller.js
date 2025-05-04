@@ -93,4 +93,25 @@ const createPost = async (req, res) => {
   }
 };
 
-module.exports = { signup, login, createPost };
+const getPosts = async (req, res) => {
+  const { id } = req.body;
+
+  try {
+    const posts = await createPostsModel.find({ author: id });
+    if (!posts || posts.length === 0)
+      return res.status(400).json({ msg: "No posts found" });
+
+    console.log(posts);
+
+    res.json(posts);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ msg: "Server Error" });
+  }
+};
+
+const allPosts = async (req, res) => {
+  // const
+};
+
+module.exports = { signup, login, createPost, getPosts };
