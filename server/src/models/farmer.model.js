@@ -8,6 +8,9 @@ const farmerSchema = new mongoose.Schema(
     farmerId: { type: String, required: true },
     mobile: { type: String, required: true },
     password: { type: String, required: true },
+    otp: {type: String },
+    otpExpiry: {type: Date },
+    isVerified: {type: Boolean , default: false }
   },
   { timestamps: true }
 );
