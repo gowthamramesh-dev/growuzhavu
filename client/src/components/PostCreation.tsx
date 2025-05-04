@@ -11,7 +11,8 @@ const PostCreation = () => {
   const ampm = h >= 12 ? "PM" : "AM";
   const time = `${h % 12 || 12}:${m < 10 ? "0" + m : m} ${ampm}`;
 
-  const [data, setData] = useState({
+  // eslint-disable-next-line prefer-const
+  let [data, setData] = useState({
     author: id,
     picture: "",
     commodityName: "",
@@ -44,7 +45,7 @@ const PostCreation = () => {
     setData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSubmit = async (e: { preventDefault: () => void }) => {
+  const handleSubmit = async (e) => {
     // Optional basic validation
     if (
       !data.commodityName ||

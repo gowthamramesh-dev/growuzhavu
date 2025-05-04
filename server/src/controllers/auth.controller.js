@@ -110,4 +110,8 @@ const getPosts = async (req, res) => {
   }
 };
 
+const allPosts = async (req, res) => {
+  // const
+};
+
 module.exports = { signup, login, createPost, getPosts };
