@@ -96,7 +96,10 @@ const Login = () => {
                   />
                   <button
                     type="button"
-                    onClick={() => setSignup(true)}
+                    onClick={() => {
+                      setSignup(true);
+                      alert("hiyou");
+                    }}
                     className="hover:text-green-500 hover:underline cursor-pointer"
                   >
                     not signup? then Signup

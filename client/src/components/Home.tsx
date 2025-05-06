@@ -1,9 +1,33 @@
-import data from "../assets/CommodityList.json";
 import Banner from "../../public/Banner.png";
 import Card from "./Card";
 import HomePrice from "./HomePrice";
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+interface Post {
+  _id: string;
+  author: string;
+  picture: string;
+  commodityName: string;
+  commodityPrice: string;
+  commodityDescription: string;
+  date: string;
+  time: string;
+}
 
 const Home = () => {
+  const [posts, setPosts] = useState<Post[]>([]);
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/api/farmers/allPosts`)
+      .then((result) => {
+        console.log("Fetched posts:", result.data);
+        setPosts(result.data);
+      })
+      .catch((err) => console.log(err));
+  });
+
+  // console.log(posts);
   return (
     <>
       <div className="w-full bg-white dark:bg-neutral-950 p-1.5 lg:p-3">
@@ -47,9 +71,13 @@ const Home = () => {
               id="items"
               className="p-3 flex justify-center lg:justify-start  flex-wrap gap-6 h-fit lg:w-5/6 w-full bg-slate-950"
             >
-              {data.map((item) => (
-                <Card key={item.id} item={item} />
-              ))}
+              {posts.length > 0 ? (
+                posts.map((item) => <Card key={item._id} item={item} />)
+              ) : (
+                <div className="w-full h-screen flex items-center justify-center text-white">
+                  <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-green-500"></div>
+                </div>
+              )}
             </div>
             <div className="hidden border w-1/4 h-screen lg:flex overflow-scroll no-scrollbar bg-slate-950">
               <HomePrice />
