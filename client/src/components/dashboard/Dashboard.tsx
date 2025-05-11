@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 import HomePrice from "../HomePrice";
 
 const Dashboard = () => {
+
   const { id } = useParams();
   const [currentComponent, setCurrentComponent] = useState("home");
   const [follow, setFollow] = useState(true);
@@ -23,7 +24,9 @@ const Dashboard = () => {
         return <Editprofile />;
       default:
         return <Post />;
-    }
+    
+      }
+      
   };
   return (
     <>

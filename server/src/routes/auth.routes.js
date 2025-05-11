@@ -14,11 +14,11 @@ const router = express.Router();
 router.post(
   "/signup",
   [
-    body("username").not().isEmpty().withMessage("Username is required"),
-    body("fullname").not().isEmpty().withMessage("Fullname is required"),
+    body("uname").not().isEmpty().withMessage("Username is required"),
+    body("fname").not().isEmpty().withMessage("Fullname is required"),
     body("email").isEmail().withMessage("Valid email is required"),
-    body("farmerId").not().isEmpty().withMessage("Farmer ID is required"),
-    body("mobile")
+    body("password").not().isEmpty().withMessage("password is required"),
+    body("number")
       .isLength({ min: 10, max: 10 })
       .withMessage("Valid mobile number is required")
       .matches(/^[0-9]+$/)

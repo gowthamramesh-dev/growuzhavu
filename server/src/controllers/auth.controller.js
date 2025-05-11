@@ -1,4 +1,4 @@
-const Farmer = require("../models/farmer.model");
+const Farmer = require("../models/userModel");
 const createPostsModel = require("../models/productCard.model");
 const bcrypt = require("bcryptjs");
 const generateToken = require("../utils/generateToken");

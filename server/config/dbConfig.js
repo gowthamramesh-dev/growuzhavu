@@ -1,15 +1,16 @@
 const mongoose = require("mongoose");
-const Farmer = require('../src/models/farmer.model');
+const Farmer = require('../src/models/userModel');
+
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGODB_URL);
+    await mongoose.connect(process.env.mongodb_url);
     console.log("Connected Successfully to the Database");
     await Farmer.createCollection();
-    comsole.log('User Empty Collection Created Successfully');
+    console.log('User Empty Collection Created Successfully');
   } catch (error) {
     console.error("Error Connecting to the Database:", error.message);
-    process.exit(1); // Exit process with failure
+    process.exit(1);
   }
 };
-connectDB();
+
 module.exports = connectDB;
