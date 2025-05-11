@@ -120,10 +120,32 @@ const Login = () => {
             ) : (
               <form onSubmit={onSubmit}>
                 <div className="h-full py-4 flex *:dark:text-white *:text-black flex-col gap-2">
+<<<<<<< HEAD
                   <input type="text" name="uname" value={uname} onChange={onChange} className="w-full border border-green-500 outline-0 p-2 rounded" placeholder="Username/Email/Mobile" />
                   <input type="password" name="password" value={password} onChange={onChange} className="w-full border border-green-500 outline-0 p-2 rounded" placeholder="Password" />
                   <button type="button" onClick={() => setSignupMode(true)} className="hover:text-green-500 hover:underline cursor-pointer">
                     Not signed up? Then Signup
+=======
+                  <input
+                    type="text"
+                    className="w-full h-1/2 border border-green-500 outline-0 p-2 rounded"
+                    placeholder="Username/Email/Mobile"
+                  />
+                  <input
+                    type="password"
+                    className="w-full h-1/2 border border-green-500 outline-0 p-2 rounded"
+                    placeholder="Password"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSignup(true);
+                      alert("hiyou");
+                    }}
+                    className="hover:text-green-500 hover:underline cursor-pointer"
+                  >
+                    not signup? then Signup
+>>>>>>> 8248ee3cca6cb0fba308049cbd9406dfe7871f64
                   </button>
                   <div className="flex justify-center py-5">
                     <button className="px-10 py-1 text-white bg-green-500" type="submit">

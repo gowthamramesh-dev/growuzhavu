@@ -56,11 +56,8 @@ const PostCreation = () => {
       return;
     }
     try {
-      const res = await axios.post(
-        "http://localhost:5000/api/farmers/createPost",
-        data
-      );
-      console.log("Server Response:", res.data);
+      await axios.post("http://localhost:5000/api/farmers/createPost", data);
+
       alert("Post created successfully!");
     } catch (err) {
       console.error("Error during post creation:", err);

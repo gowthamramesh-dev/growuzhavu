@@ -25,7 +25,10 @@ const Post = () => {
         console.log("Fetched posts:", result.data);
         setPosts(result.data);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        setPost(false);
+      });
   }, [id]);
 
   return (

@@ -1,6 +1,5 @@
 import CommodityData from "../assets/CommodityList.json";
 import { useParams } from "react-router-dom";
-
 import { Link } from "react-router-dom";
 import HomePrice from "./HomePrice";
 
