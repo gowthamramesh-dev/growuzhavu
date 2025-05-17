@@ -14,7 +14,6 @@ interface Post {
   date: string;
   time: string;
 }
-
 const Home = () => {
   const [posts, setPosts] = useState<Post[]>([]);
   useEffect(() => {

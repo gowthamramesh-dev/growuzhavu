@@ -5,7 +5,7 @@ const bcrypt = require("bcryptjs");
 const generateToken = require("../utils/generateToken");
 
 const signup = asyncHandler(async (req, res) => {
-  const { username, fullname, email, number, password } = req.body;
+  const { username, fullname, email, usertype, number, password } = req.body;
 
   try {
     const existing = await Farmer.findOne({ email });
@@ -15,6 +15,7 @@ const signup = asyncHandler(async (req, res) => {
       username,
       fullname,
       email,
+      usertype,
       number,
       password,
     });

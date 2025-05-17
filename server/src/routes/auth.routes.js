@@ -18,6 +18,7 @@ router.post(
     body("username").not().isEmpty().withMessage("Username is required"),
     body("fullname").not().isEmpty().withMessage("Fullname is required"),
     body("email").isEmail().withMessage("Valid email is required"),
+    body("usertype").not().isEmpty().withMessage("Usertype is required"),
     body("password").not().isEmpty().withMessage("password is required"),
     body("number")
       .isLength({ min: 10, max: 10 })
