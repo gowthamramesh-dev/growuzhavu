@@ -15,8 +15,8 @@ const router = express.Router();
 router.post(
   "/signup",
   [
-    body("uname").not().isEmpty().withMessage("Username is required"),
-    body("fname").not().isEmpty().withMessage("Fullname is required"),
+    body("username").not().isEmpty().withMessage("Username is required"),
+    body("fullname").not().isEmpty().withMessage("Fullname is required"),
     body("email").isEmail().withMessage("Valid email is required"),
     body("password").not().isEmpty().withMessage("password is required"),
     body("number")

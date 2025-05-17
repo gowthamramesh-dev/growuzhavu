@@ -95,10 +95,12 @@ const Post = () => {
             )}
           </div>
         ) : (
-          <div className="h-screen w-full flex items-center justify-center">
-            <div className="flex items-baseline gap-5 opacity-50">
-              <i className="bi bi-basket3 text-6xl"></i>
-              No Post Yet
+          <div className=" w-full flex items-center justify-center">
+            <div className="flex h-screen items-center justify-center gap-5 opacity-50">
+              <div className="">
+                <i className="bi bi-basket3 text-6xl"></i>
+                No Post Yet
+              </div>
             </div>
           </div>
         )}
