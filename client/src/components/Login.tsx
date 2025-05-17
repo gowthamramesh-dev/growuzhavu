@@ -50,7 +50,7 @@ const Login = () => {
                     </button>
                   </div>
                 </div>
-              </form>
+          
             ) : (
               <form onSubmit={onSubmit}>
                 <div className="h-full py-4 flex *:dark:text-white *:text-black flex-col gap-2">

@@ -8,6 +8,7 @@ import PostDetail from "./PostDetail.tsx";
 import PostCreation from "./PostCreation.tsx";
 import History from "./History1.tsx";
 import Chats from "./Chats.tsx";
+import Chatbot from "./Chatbot.tsx";
 
 const Index = () => (
   <>
@@ -34,6 +35,7 @@ const Index = () => (
               <Route path="/:id/create-post" element={<PostCreation />} />
             </Routes>
           </div>
+          <Chatbot />
         </div>
       </div>
     </div>
