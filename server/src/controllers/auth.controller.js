@@ -168,43 +168,50 @@ const editProfile = async (req, res) => {
   } = req.body;
 
   try {
-    const farmer = await editProfileModel.findOne({ author: author });
-    const password = newPass;
-    const oldPas = await bcrypt.hash(oldPass, 10);
-    if (!farmer) {
-      await editProfileModel.create({
+    // Step 1: Edit Profile data
+    let editProfileData = await EditProfile.findOne({ author });
+
+    if (!editProfileData) {
+      editProfileData = new EditProfile({
         author,
         picture,
         name,
         gender,
         mobile,
-        password,
         address,
         description,
       });
+      await editProfileData.save();
+    } else {
+      if (picture) editProfileData.picture = picture;
+      if (name) editProfileData.name = name;
+      if (gender) editProfileData.gender = gender;
+      if (mobile) editProfileData.mobile = mobile;
+      if (address) editProfileData.address = address;
+      if (description) editProfileData.description = description;
+      await editProfileData.save();
     }
 
-    if (picture) farmer.picture = picture;
-    if (name) farmer.name = name;
-    if (gender) farmer.gender = gender;
-    if (mobile) farmer.mobile = mobile;
-    if (address) farmer.address = address;
-    if (description) farmer.description = description;
+    // Step 2: Update password in Farmer model
+    const farmer = await Farmer.findById(author);
+    if (!farmer) {
+      return res.status(404).json({ message: "Farmer not found" });
+    }
 
-    // Handle password update
     if (oldPass && newPass) {
       const isMatch = await bcrypt.compare(oldPass, farmer.password);
       if (!isMatch) {
         return res.status(400).json({ message: "Old password is incorrect" });
       }
 
-      // Set new password (will get hashed by pre-save hook)
       farmer.password = newPass;
+      await farmer.save();
     }
 
-    await farmer.save();
-
-    res.status(200).json({ message: "Profile updated successfully", farmer });
+    res.status(200).json({
+      message: "Profile updated successfully",
+      profile: editProfileData,
+    });
   } catch (err) {
     console.error("EditProfile Error:", err);
     res.status(500).json({ message: "Server error" });

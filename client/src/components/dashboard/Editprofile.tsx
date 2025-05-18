@@ -6,9 +6,10 @@ const Editprofile = () => {
   const { id } = useParams();
   const mobile_otp = () => {
     const element = document.getElementById("otp-enter");
-    element?.classList.toggle("hidden");
+    if (element) {
+      element.classList.toggle("hidden");
+    }
   };
-  const otpEnterElement = document.getElementById("otp-enter");
 
   const [data, setData] = useState({
     author: id,
