@@ -6,6 +6,7 @@ const {
   createPost,
   getPosts,
   allPosts,
+  postDetails,
 } = require("../controllers/auth.controller");
 const { editProfile } = require("../models/editProfile.model");
 const validateRequest = require("../middleware/validateRequest");
@@ -15,9 +16,10 @@ const router = express.Router();
 router.post(
   "/signup",
   [
-    body("uname").not().isEmpty().withMessage("Username is required"),
-    body("fname").not().isEmpty().withMessage("Fullname is required"),
+    body("username").not().isEmpty().withMessage("Username is required"),
+    body("fullname").not().isEmpty().withMessage("Fullname is required"),
     body("email").isEmail().withMessage("Valid email is required"),
+    body("usertype").not().isEmpty().withMessage("Usertype is required"),
     body("password").not().isEmpty().withMessage("password is required"),
     body("number")
       .isLength({ min: 10, max: 10 })
@@ -58,6 +60,7 @@ router.post(
 );
 
 router.post("/getPosts", getPosts);
+router.post("/postDetails", postDetails);
 
 router.get("/allPosts", allPosts);
 

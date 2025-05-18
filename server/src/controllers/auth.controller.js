@@ -1,35 +1,45 @@
-const Farmer = require("../models/userModel");
+const Farmer = require("../models/farmer.model");
 const createPostsModel = require("../models/productCard.model");
+const asyncHandler = require("express-async-handler");
 const bcrypt = require("bcryptjs");
 const generateToken = require("../utils/generateToken");
 
-const signup = async (req, res) => {
-  const { username, fullname, email, farmerId, mobile, password } = req.body;
+const signup = asyncHandler(async (req, res) => {
+  const { username, fullname, email, usertype, number, password } = req.body;
 
   try {
     const existing = await Farmer.findOne({ email });
     if (existing) return res.status(400).json({ msg: "Email already exists" });
 
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const farmer = await Farmer.create({
+    const farmer = new Farmer({
       username,
       fullname,
       email,
-      farmerId,
-      mobile,
-      password: hashedPassword,
+      usertype,
+      number,
+      password,
     });
 
-    res.status(201).json({
-      _id: farmer._id,
-      username: farmer.username,
-      email: farmer.email,
-      token: generateToken(farmer._id.toString()),
-    });
+    await farmer.save();
+
+    // Check if farmer was created successfully
+    if (farmer) {
+      res.status(201).json({
+        _id: farmer._id,
+        username: farmer.username,
+        email: farmer.email,
+        picture: farmer.picture,
+        token: generateToken(farmer._id),
+      });
+    } else {
+      res.status(400);
+      throw new Error("Failed to create the user");
+    }
   } catch (err) {
-    res.status(500).json({ msg: "Server Error" });
+    console.error(err);
+    res.status(500).json({ msg: "Server Error", error: err.message });
   }
-};
+});
 
 const login = async (req, res) => {
   const { email, password } = req.body;
@@ -38,17 +48,21 @@ const login = async (req, res) => {
     const farmer = await Farmer.findOne({ email });
     if (!farmer) return res.status(400).json({ msg: "Invalid credentials" });
 
-    const isMatch = await bcrypt.compare(password, farmer.password);
-    if (!isMatch) return res.status(400).json({ msg: "Invalid credentials" });
-
-    res.json({
-      _id: farmer._id,
-      username: farmer.username,
-      email: farmer.email,
-      token: generateToken(farmer._id.toString()),
-    });
+    if (farmer && (await farmer.matchPassword(password))) {
+      res.json({
+        _id: farmer._id,
+        username: farmer.username,
+        email: farmer.email,
+        picture: farmer.picture,
+        token: generateToken(farmer._id),
+      });
+    } else {
+      res.status(401);
+      throw new Error("Invalid Credentials");
+    }
   } catch (err) {
-    res.status(500).json({ msg: "Server Error" });
+    console.error("Login Error:", err.message); // helpful log
+    res.status(500).json({ msg: "Server Error", error: err.message });
   }
 };
 
@@ -110,6 +124,21 @@ const getPosts = async (req, res) => {
   }
 };
 
+const postDetails = async (req, res) => {
+  const { id } = req.body;
+
+  try {
+    const posts = await createPostsModel.find({ _id: id });
+    if (!posts || posts.length === 0)
+      return res.status(400).json({ msg: "No posts found" });
+
+    res.json(posts);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ msg: "Server Error" });
+  }
+};
+
 const allPosts = async (req, res) => {
   try {
     const all = await createPostsModel.find().sort({ createdAt: -1 });
@@ -124,4 +153,4 @@ const allPosts = async (req, res) => {
   }
 };
 
-module.exports = { signup, login, createPost, getPosts, allPosts };
+module.exports = { signup, login, createPost, getPosts, allPosts, postDetails };
