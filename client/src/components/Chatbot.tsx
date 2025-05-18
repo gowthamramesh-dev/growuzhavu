@@ -1,9 +1,10 @@
 import { useState, useRef, useEffect, KeyboardEvent } from "react";
 import axios from "axios";
-import { Send, Loader2 } from "lucide-react";
+import { Send, Loader2, Mic, MicOff } from "lucide-react";
 import { motion } from "framer-motion";
+import logo from "../asset/logo.jpg";
 
-// Define the structure of each message
+// Message type
 interface Message {
   sender: "user" | "bot";
   text: string;
@@ -14,7 +15,45 @@ const Chatbot = () => {
   const [input, setInput] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [showChatbot, setShowChatbot] = useState<boolean>(false);
+  const [listening, setListening] = useState<boolean>(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  // @ts-ignore - handle missing types
+  const recognition = useRef<any>(
+    typeof window !== "undefined" &&
+      (window.SpeechRecognition || window.webkitSpeechRecognition)
+      ? new (window.SpeechRecognition || window.webkitSpeechRecognition)()
+      : null
+  );
+
+  // Configure recognition
+  useEffect(() => {
+    if (!recognition.current) return;
+
+    recognition.current.lang = "en-US"; // You can change this to "ta-IN" for Tamil
+    recognition.current.continuous = false;
+    recognition.current.interimResults = false;
+
+    recognition.current.onresult = (event: SpeechRecognitionEvent) => {
+      const transcript = event.results[0][0].transcript;
+      setInput((prev) => prev + " " + transcript);
+    };
+
+    recognition.current.onend = () => {
+      setListening(false);
+    };
+  }, []);
+
+  const toggleListening = () => {
+    if (!recognition.current) return;
+    if (listening) {
+      recognition.current.stop();
+      setListening(false);
+    } else {
+      recognition.current.start();
+      setListening(true);
+    }
+  };
 
   const sendMessage = async (): Promise<void> => {
     if (!input.trim()) return;
@@ -58,7 +97,7 @@ const Chatbot = () => {
     <>
       {/* Toggle Button */}
       <div
-        className="fixed bottom-4 right-4 cursor-pointer bg-blue-600 p-3 rounded-full shadow-lg text-white z-50"
+        className="fixed bottom-4 right-4 cursor-pointer bg-green-500 p-3 rounded-full shadow-lg text-white z-50"
         onClick={() => setShowChatbot((prev) => !prev)}
       >
         💬
@@ -66,14 +105,16 @@ const Chatbot = () => {
 
       {/* Chatbot Popup */}
       {showChatbot && (
-        <div className="fixed bottom-0 right-0 w-full max-w-md mx-auto h-[70vh] bg-gradient-to-b from-purple-200 to-blue-100 shadow-lg rounded-lg overflow-hidden z-50">
-          <div className="flex items-center justify-between px-4 py-4 bg-white shadow-sm sticky top-0 bg-white dark:bg-neutral-950">
-            <div className="flex items-center gap-2 ">
-              <img src="/bot1.png" alt="Bot Logo" className="h-8 w-8 rounded-full" />
-              <span className="text-lg font-semibold text-gray-700">Agri-Commerce Chatbot</span>
+        <div className="fixed bottom-0 right-0 w-full max-w-md mx-auto h-[70vh] bg-slate-950 rounded-lg overflow-hidden z-50 border border-green-500 ">
+          <div className="flex items-center justify-between px-4 py-4 bg-white dark:bg-neutral-950 border border-green-500">
+            <div className="flex items-center gap-2">
+              <img src={logo} alt="Bot Logo" className="h-8 w-8 rounded-full" />
+              <span className="text-lg font-semibold text--700">
+                Agri-Commerce Chatbot
+              </span>
             </div>
             <div
-              className="cursor-pointer"
+              className="cursor-pointer border border-green-500 rounded-full px-2 py-1"
               onClick={() => setShowChatbot(false)}
             >
               X
@@ -81,13 +122,13 @@ const Chatbot = () => {
           </div>
 
           {messages.length === 0 && (
-            <div className="text-center text-gray-600 text-base md:text-lg font-medium mt-4 md:mt-6">
-              Hi there! 🌱 I'm AgriBot, your smart assistant 🌾. 
+            <div className="text-center text-gray-600 text-base mt-4">
+              Hi there! 🌱 I'm AgriBot, your smart assistant 🌾.
             </div>
           )}
 
           {/* Messages */}
-          <div className="flex-1 px-4 py-4 md:py-6 overflow-y-auto">
+          <div className="flex-1 px-4 py-4 overflow-y-auto">
             <div className="max-w-3xl mx-auto">
               {messages.map((msg, index) => (
                 <motion.div
@@ -102,7 +143,7 @@ const Chatbot = () => {
                   <div
                     className={`whitespace-pre-line rounded-2xl px-5 py-3 max-w-[75%] text-sm font-medium shadow ${
                       msg.sender === "user"
-                        ? "bg-blue-600 text-white"
+                        ? "bg-green-600 text-white"
                         : "bg-gray-200 text-gray-800"
                     }`}
                   >
@@ -127,9 +168,18 @@ const Chatbot = () => {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyPress}
-                placeholder="Type your question here..."
+                placeholder="How can I assist you ....."
                 className="flex-1 text-black text-sm px-2 py-2 focus:outline-none"
               />
+              <button
+                onClick={toggleListening}
+                className={`text-white rounded-full p-2 ${
+                  listening ? "bg-red-500" : "bg-blue-500"
+                }`}
+                title={listening ? "Stop Listening" : "Start Listening"}
+              >
+                {listening ? <MicOff size={18} /> : <Mic size={18} />}
+              </button>
               <button
                 onClick={sendMessage}
                 disabled={loading}
@@ -146,3 +196,4 @@ const Chatbot = () => {
 };
 
 export default Chatbot;
+ 
