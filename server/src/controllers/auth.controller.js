@@ -1,8 +1,9 @@
 const Farmer = require("../models/farmer.model");
 const createPostsModel = require("../models/productCard.model");
 const asyncHandler = require("express-async-handler");
-const bcrypt = require("bcryptjs");
+// const bcrypt = require("bcryptjs");
 const generateToken = require("../utils/generateToken");
+const editProfileModel = require("../models/editProfile.model");
 
 const signup = asyncHandler(async (req, res) => {
   const { username, fullname, email, usertype, number, password } = req.body;
@@ -153,4 +154,69 @@ const allPosts = async (req, res) => {
   }
 };
 
-module.exports = { signup, login, createPost, getPosts, allPosts, postDetails };
+const editProfile = async (req, res) => {
+  const {
+    author,
+    picture,
+    name,
+    gender,
+    mobile,
+    oldPass,
+    newPass,
+    address,
+    description,
+  } = req.body;
+
+  try {
+    const farmer = await editProfileModel.findOne({ author: author });
+    const password = newPass;
+    const oldPas = await bcrypt.hash(oldPass, 10);
+    if (!farmer) {
+      await editProfileModel.create({
+        author,
+        picture,
+        name,
+        gender,
+        mobile,
+        password,
+        address,
+        description,
+      });
+    }
+
+    if (picture) farmer.picture = picture;
+    if (name) farmer.name = name;
+    if (gender) farmer.gender = gender;
+    if (mobile) farmer.mobile = mobile;
+    if (address) farmer.address = address;
+    if (description) farmer.description = description;
+
+    // Handle password update
+    if (oldPass && newPass) {
+      const isMatch = await bcrypt.compare(oldPass, farmer.password);
+      if (!isMatch) {
+        return res.status(400).json({ message: "Old password is incorrect" });
+      }
+
+      // Set new password (will get hashed by pre-save hook)
+      farmer.password = newPass;
+    }
+
+    await farmer.save();
+
+    res.status(200).json({ message: "Profile updated successfully", farmer });
+  } catch (err) {
+    console.error("EditProfile Error:", err);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+module.exports = {
+  signup,
+  login,
+  createPost,
+  getPosts,
+  allPosts,
+  postDetails,
+  editProfile,
+};

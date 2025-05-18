@@ -11,6 +11,8 @@ import Chats from "./Chats.tsx";
 import Chatbot from "./Chatbot.tsx";
 import Login from "./Blogin.tsx";
 import { useEffect, useState } from "react";
+import Post from "./dashboard/Post.tsx";
+import Progress from "./Progress.tsx";
 
 const TOKEN_KEY = "authToken";
 const TOKEN_EXPIRY_KEY = "authTokenExpiry";
@@ -54,7 +56,7 @@ const Index = () => {
             >
               <Navbar />
             </div>
-            <div className="w-full m-2 lg:ml-14 mt-20 lg:mt-14">
+            <div className="w-full m-2 lg:ml-14 mt-20 lg:mt-18">
               <Routes>
                 <Route
                   path="/signup"
@@ -66,10 +68,11 @@ const Index = () => {
                 />
 
                 <Route path="/" element={<Home />} />
+                <Route path="/progress" element={<Progress />} />
                 <Route path="/:id/chats/" element={<Chats />} />
                 <Route path={"/post/:id"} element={<PostDetail />} />
                 <Route path="/dashboard/:id" element={<Dashboard />} />
-
+                <Route path={"/:id/created"} element={<Post />} />
                 <Route path="*" element={<Navigate to="/login" />} />
                 <Route path="/:id/history" element={<History />} />
                 <Route path="/:id/create-post" element={<PostCreation />} />

@@ -1,11 +1,9 @@
-// import { useParams } from "react-router-dom";
-// import axios from "axios";
-// import { useState } from "react";
-
+import { useParams } from "react-router-dom";
+import axios from "axios";
 import { useState } from "react";
 
 const Editprofile = () => {
-  // const { id } = useParams();
+  const { id } = useParams();
   const mobile_otp = () => {
     const element = document.getElementById("otp-enter");
     element?.classList.toggle("hidden");
@@ -13,6 +11,7 @@ const Editprofile = () => {
   const otpEnterElement = document.getElementById("otp-enter");
 
   const [data, setData] = useState({
+    author: id,
     picture: "",
     name: "",
     gender: "",
@@ -44,24 +43,19 @@ const Editprofile = () => {
     setData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  // const handleSubmit = (e: { preventDefault: () => void }) => {
-  //   e.preventDefault();
-  //   axios
-  //     .post(`http://localhost:5000/api/${id}/editProfile`, data)
-  //     .then((res) => console.log(res))
-  //     .catch((err) => console.log(err));
-  // };
+  const handleSubmit = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    axios
+      .post(`http://localhost:5000/api/farmers/editProfile`, data)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
   return (
     <>
       <div className="h-full *:p-3 *:bg-slate-950 *:border *:border-green-500 *:h-full">
         <div className=" flex text-white flex-col gap-5">
           <h1 className="text-3xl">Edit Profile</h1>
-          <form
-            className="flex flex-col gap-2.5"
-            onSubmit={(e) => {
-              e.preventDefault();
-            }}
-          >
+          <form className="flex flex-col gap-2.5" onSubmit={handleSubmit}>
             <label className="">Photo</label>
             <div className="flex gap-5 flex-col">
               <img

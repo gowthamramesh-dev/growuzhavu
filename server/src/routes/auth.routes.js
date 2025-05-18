@@ -7,8 +7,8 @@ const {
   getPosts,
   allPosts,
   postDetails,
+  editProfile,
 } = require("../controllers/auth.controller");
-const { editProfile } = require("../models/editProfile.model");
 const validateRequest = require("../middleware/validateRequest");
 
 const router = express.Router();
@@ -60,8 +60,8 @@ router.post(
 );
 
 router.post("/getPosts", getPosts);
+router.post("/editProfile", editProfile);
 router.post("/postDetails", postDetails);
-
 router.get("/allPosts", allPosts);
 
 module.exports = router;
