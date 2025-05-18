@@ -20,13 +20,11 @@ const Home = () => {
     axios
       .get(`http://localhost:5000/api/farmers/allPosts`)
       .then((result) => {
-        console.log("Fetched posts:", result.data);
         setPosts(result.data);
       })
       .catch((err) => console.log(err));
-  });
+  }, []);
 
-  // console.log(posts);
   return (
     <>
       <div className="w-full bg-white dark:bg-neutral-950 p-1.5 lg:p-3">

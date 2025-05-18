@@ -6,6 +6,7 @@ const {
   createPost,
   getPosts,
   allPosts,
+  postDetails,
 } = require("../controllers/auth.controller");
 const { editProfile } = require("../models/editProfile.model");
 const validateRequest = require("../middleware/validateRequest");
@@ -59,6 +60,7 @@ router.post(
 );
 
 router.post("/getPosts", getPosts);
+router.post("/postDetails", postDetails);
 
 router.get("/allPosts", allPosts);
 

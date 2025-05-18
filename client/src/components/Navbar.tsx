@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const userid = localStorage.getItem("userid");
   const handleNav = () => {
     const element = document.getElementById("nav");
     element?.classList.toggle("hidden");
@@ -17,7 +18,7 @@ const Navbar = () => {
               {topics.one}
             </label>
             <ul className="*:border *:border-green-500 *:overflow-hidden  *:hover:bg-slate-800 *:dark:border-green-500 *:flex *:px-1 lg:*:justify-center  **:*:text-white lg:group-hover:*:justify-normal lg:group-hover:*:px-2 flex flex-col gap-5 lg:group-hover:gap-3 **:gap-1 lg:**:gap-3 *:**:flex *:**:items-center  *:**:py-1 **:h-full *:hover:border-green-500 ">
-              <Link to="/dashboard/user-1" onClick={handleNav}>
+              <Link to={`/dashboard/${JSON.parse(userid)}`} onClick={handleNav}>
                 <i className="bi bi-graph-up text-2xl"></i>
                 <label className="lg:hidden  lg:group-hover:flex ">
                   {items.profile}

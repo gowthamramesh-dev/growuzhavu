@@ -16,7 +16,6 @@ interface CardProps {
 }
 
 function Card({ item }: CardProps) {
-  console.log("it's me card", item);
   return (
     <>
       <Link to={`/post/${item._id}`}>

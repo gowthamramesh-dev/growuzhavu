@@ -12,8 +12,8 @@ import Chatbot from "./Chatbot.tsx";
 import Login from "./Blogin.tsx";
 import { useEffect, useState } from "react";
 
-const TOKEN_KEY = "token";
-const TOKEN_EXPIRY_KEY = "tokenExpiry";
+const TOKEN_KEY = "authToken";
+const TOKEN_EXPIRY_KEY = "authTokenExpiry";
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -67,7 +67,7 @@ const Index = () => {
 
                 <Route path="/" element={<Home />} />
                 <Route path="/:id/chats/" element={<Chats />} />
-                <Route path="/post/:id" element={<PostDetail />} />
+                <Route path={"/post/:id"} element={<PostDetail />} />
                 <Route path="/dashboard/:id" element={<Dashboard />} />
 
                 <Route path="*" element={<Navigate to="/login" />} />

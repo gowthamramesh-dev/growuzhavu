@@ -1,15 +1,16 @@
 import { Navigate, Outlet } from "react-router-dom";
 
-const TOKEN_KEY = "token";
-const TOKEN_EXPIRY_KEY = "tokenExpiry";
-
 const ProtectedRoute = () => {
-  const token = localStorage.getItem(TOKEN_KEY);
-  const expiry = localStorage.getItem(TOKEN_EXPIRY_KEY);
+  const token = localStorage.getItem("token");
+  const expiry = localStorage.getItem("tokenExpiry");
 
-  const isValid = token && expiry && Date.now() < Number(expiry);
+  const isTokenValid = token && expiry && new Date().getTime() < Number(expiry);
 
-  return isValid ? <Outlet /> : <Navigate to="/login" replace />;
+  if (isTokenValid) {
+    return <Outlet />;
+  } else {
+    return <Navigate to="/login" replace />;
+  }
 };
 
 export default ProtectedRoute;
