@@ -1,9 +1,9 @@
 const Farmer = require("../models/farmer.model");
 const createPostsModel = require("../models/productCard.model");
 const asyncHandler = require("express-async-handler");
-// const bcrypt = require("bcryptjs");
+const bcrypt = require("bcryptjs");
 const generateToken = require("../utils/generateToken");
-const editProfileModel = require("../models/editProfile.model");
+const EditProfile = require("../models/editProfile.model");
 
 const signup = asyncHandler(async (req, res) => {
   const { username, fullname, email, usertype, number, password } = req.body;
@@ -169,7 +169,7 @@ const editProfile = async (req, res) => {
 
   try {
     // Step 1: Edit Profile data
-    let editProfileData = await EditProfile.findOne({ author });
+    let editProfileData = await EditProfile.findOne({ author: author });
 
     if (!editProfileData) {
       editProfileData = new EditProfile({
