@@ -1,9 +1,11 @@
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
 const PostCreation = () => {
-  const { id } = useParams();
+  const storedId = localStorage.getItem("userid");
+  const id = storedId ? JSON.parse(storedId) : null;
+
   const d = new Date();
   const date = d.toJSON().slice(0, 10).split("-").reverse().join("-");
   const m = d.getMinutes();

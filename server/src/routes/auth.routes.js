@@ -8,6 +8,8 @@ const {
   allPosts,
   postDetails,
   editProfile,
+  farmerDashboard,
+  followCount,
 } = require("../controllers/auth.controller");
 const validateRequest = require("../middleware/validateRequest");
 
@@ -60,8 +62,10 @@ router.post(
 );
 
 router.post("/getPosts", getPosts);
+router.post("/followCount", followCount);
 router.post("/editProfile", editProfile);
 router.post("/postDetails", postDetails);
 router.get("/allPosts", allPosts);
+router.post("/farmerdata", farmerDashboard);
 
 module.exports = router;

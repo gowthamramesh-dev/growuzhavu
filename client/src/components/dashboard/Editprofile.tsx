@@ -1,9 +1,10 @@
-import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 
 const Editprofile = () => {
-  const { id } = useParams();
+  const storedId = localStorage.getItem("userid");
+  const id = storedId ? JSON.parse(storedId) : null;
+
   const mobile_otp = () => {
     const element = document.getElementById("otp-enter");
     if (element) {

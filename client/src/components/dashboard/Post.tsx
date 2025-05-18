@@ -15,7 +15,8 @@ interface Post {
 }
 
 const Post = () => {
-  const { id } = useParams();
+  const storedId = localStorage.getItem("userid");
+  const id = storedId ? JSON.parse(storedId) : null;
   const [posts, setPosts] = useState<Post[]>([]);
   const [hasError, setHasError] = useState(false);
 

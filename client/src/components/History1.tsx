@@ -1,7 +1,7 @@
-import { useParams } from "react-router-dom";
-
 const History = () => {
-  const { id } = useParams();
+  const storedId = localStorage.getItem("userid");
+  const id = storedId ? JSON.parse(storedId) : null;
+
   return (
     <>
       <div className="h-screen *:bg-slate-950  *:p-3 *:border *:border-green-500 *:h-full">

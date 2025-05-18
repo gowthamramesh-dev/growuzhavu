@@ -4,6 +4,7 @@ const asyncHandler = require("express-async-handler");
 const bcrypt = require("bcryptjs");
 const generateToken = require("../utils/generateToken");
 const EditProfile = require("../models/editProfile.model");
+const followModel = require("../models/follow.model");
 
 const signup = asyncHandler(async (req, res) => {
   const { username, fullname, email, usertype, number, password } = req.body;
@@ -218,6 +219,44 @@ const editProfile = async (req, res) => {
   }
 };
 
+const farmerDashboard = async (req, res) => {
+  const { id } = req.body;
+  try {
+    const profileData = await EditProfile.findOne({ author: id });
+
+    if (!profileData || profileData.length === 0)
+      return res.status(400).json({ msg: "No data found" });
+
+    res.json(profileData);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ msg: "Server Error" });
+  }
+};
+
+const followCount = async (req, res) => {
+  const { follower, following } = req.body;
+  try {
+    const Exist = await followModel.findOne({
+      follower: follower,
+      following: following,
+    });
+
+    if (Exist) {
+      return res.status(400).json({ msg: "already follow" });
+    } else {
+      const follo = new followModel({
+        follower,
+        following,
+      });
+      await follo.save();
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ msg: "Server Error" });
+  }
+};
+
 module.exports = {
   signup,
   login,
@@ -226,4 +265,6 @@ module.exports = {
   allPosts,
   postDetails,
   editProfile,
+  farmerDashboard,
+  followCount,
 };
