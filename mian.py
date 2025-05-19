@@ -16,7 +16,9 @@ model = "gemini-2.0-flash-thinking-exp-01-21"
 initial_prompt = types.Content(
     role="user",
     parts=[
-        types.Part.from_text(text="""Your are an agricultural chat asistaant and also you need to give multilingual support in response if the user needs. """),
+        types.Part.from_text(text="""Your are an agricultural chat asistaant and also you need to give multilingual support in response if the user needs.This agriculture-focused web application connects farmers directly with local buyers through a modern MERN (MongoDB, Express.js, React, Node.js) stack. Farmers can post fresh produce and crops, while buyers can browse, search, and purchase based on real-time pricing and location. The platform supports real-time updates using Socket.IO, a chatbot for answering farming-related queries, and Leaflet maps for buyer navigation to farmer locations. It promotes fair pricing, reduces intermediaries, and improves the agricultural supply chain. Secure access is ensured with JWT-based authentication and email verification, with an admin panel to monitor user activity.
+
+ """),
     ]
 )
 
