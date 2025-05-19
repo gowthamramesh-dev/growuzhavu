@@ -1,9 +1,10 @@
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LanguageSelector from "./language-selector";
-import { useAuth } from "../contexts/AuthContexts"; // ✅ Auth context hook
+import { useAuth } from "../contexts/AuthContexts";
 
 const NavbarTop = () => {
+  const navigate = useNavigate();
   const { t } = useTranslation();
   const { isLoggedIn, logout } = useAuth(); // ✅ global auth context
   const btn = t("buttons");
@@ -85,7 +86,12 @@ const NavbarTop = () => {
                     className="hidden absolute lg:group-hover:flex z-20 top-11 lg:top-13 right-6 border border-green-500 bg-slate-950 w-fit p-2"
                   >
                     <ul className="*:flex *:gap-2 *:hover:cursor-pointer lg:*:text-lg *:text-white *:text-sm">
-                      <li onClick={logout}>
+                      <li
+                        onClick={() => {
+                          logout();
+                          navigate("/login");
+                        }}
+                      >
                         <i className="bi bi-box-arrow-right"></i>
                         {btn.logout}
                       </li>

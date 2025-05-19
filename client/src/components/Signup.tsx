@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 interface UserData {
   username: string;
@@ -16,6 +16,7 @@ const TOKEN_KEY = "authToken";
 const TOKEN_EXPIRY_KEY = "authTokenExpiry";
 
 const Signup = () => {
+  const navigate = useNavigate();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   useEffect(() => {
@@ -77,6 +78,7 @@ const Signup = () => {
 
       console.log("Signup success", res.data);
       alert("Signup successful!");
+      navigate("/login", { replace: true });
     } catch (err: any) {
       console.error("Signup failed:", err.response?.data || err.message);
       alert(err.response?.data?.msg || "Signup failed");
