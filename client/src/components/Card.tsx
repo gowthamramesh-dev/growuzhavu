@@ -44,7 +44,7 @@ function Card({ item }: CardProps) {
                     {item.commodityPrice}
                   </div>
                 </h1>
-                <div className="text-xs lg:text-sm">
+                <div className="text-xs text lg:text-sm">
                   {item.commodityDescription}
                 </div>
                 <div className="font-light text-xs  flex justify-between items-center">
