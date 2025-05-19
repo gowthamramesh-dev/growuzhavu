@@ -4,6 +4,7 @@ import LanguageSelector from "./language-selector";
 import { useAuth } from "../contexts/AuthContexts";
 
 const NavbarTop = () => {
+  const userid = localStorage.getItem("userid");
   const navigate = useNavigate();
   const { t } = useTranslation();
   const { isLoggedIn, logout } = useAuth(); // ✅ global auth context
@@ -67,9 +68,11 @@ const NavbarTop = () => {
             <LanguageSelector />
             {isLoggedIn ? (
               <div className="">
-                <Link to="user-1/create-post">
-                  <i className="bi text-2xl text-green-500 bi-plus-square"></i>
-                </Link>
+                {userid && (
+                  <Link to={`/${userid}/create-post`}>
+                    <i className="bi text-2xl text-green-500 bi-plus-square"></i>
+                  </Link>
+                )}
               </div>
             ) : null}
             <div className="hidden md:flex md:flex-row gap-3 items-center">

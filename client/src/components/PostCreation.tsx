@@ -3,8 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 
 const PostCreation = () => {
-  const storedId = localStorage.getItem("userid");
-  const id = storedId ? JSON.parse(storedId) : null;
+  const id = localStorage.getItem("userid");
 
   const d = new Date();
   const date = d.toJSON().slice(0, 10).split("-").reverse().join("-");
