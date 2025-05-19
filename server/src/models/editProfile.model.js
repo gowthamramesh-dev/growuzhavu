@@ -4,27 +4,31 @@ const editProfile = new mongoose.Schema(
   {
     author: {
       type: String,
+      default: "",
     },
     picture: {
       type: String,
+      default: "",
     },
     name: {
       type: String,
+      default: "",
     },
     gender: {
       type: String,
+      default: "",
     },
     mobile: {
       type: String,
-    },
-    password: {
-      type: String,
+      default: "",
     },
     address: {
       type: String,
+      default: "",
     },
     description: {
       type: String,
+      default: "",
     },
   },
   { collection: "editProfiles" }

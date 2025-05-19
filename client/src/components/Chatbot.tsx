@@ -4,7 +4,6 @@ import { Send, Loader2, Mic, MicOff } from "lucide-react";
 import { motion } from "framer-motion";
 import logo from "../asset/logo.jpg";
 
-// Message type
 interface Message {
   sender: "user" | "bot";
   text: string;
@@ -18,19 +17,18 @@ const Chatbot = () => {
   const [listening, setListening] = useState<boolean>(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // @ts-ignore - handle missing types
+  // @ts-ignore
   const recognition = useRef<any>(
     typeof window !== "undefined" &&
-      (window.SpeechRecognition || window.webkitSpeechRecognition)
+    (window.SpeechRecognition || window.webkitSpeechRecognition)
       ? new (window.SpeechRecognition || window.webkitSpeechRecognition)()
       : null
   );
 
-  // Configure recognition
   useEffect(() => {
     if (!recognition.current) return;
 
-    recognition.current.lang = "en-US"; // You can change this to "ta-IN" for Tamil
+    recognition.current.lang = "en-US"; // or "ta-IN"
     recognition.current.continuous = false;
     recognition.current.interimResults = false;
 
@@ -39,9 +37,7 @@ const Chatbot = () => {
       setInput((prev) => prev + " " + transcript);
     };
 
-    recognition.current.onend = () => {
-      setListening(false);
-    };
+    recognition.current.onend = () => setListening(false);
   }, []);
 
   const toggleListening = () => {
@@ -65,27 +61,22 @@ const Chatbot = () => {
 
     try {
       const response = await axios.post<{ reply: string }>(
-        "http://localhost:5000/bot",
+        "http://localhost:8000/bot",
         { message: input }
       );
-
-      const botMessage: Message = {
-        sender: "bot",
-        text: response.data.reply,
-      };
+      const botMessage: Message = { sender: "bot", text: response.data.reply };
       setMessages((prev) => [...prev, botMessage]);
-    } catch (error) {
-      const botMessage: Message = {
-        sender: "bot",
-        text: "⚠ Oops! Something went wrong. Try again later.",
-      };
-      setMessages((prev) => [...prev, botMessage]);
+    } catch {
+      setMessages((prev) => [
+        ...prev,
+        { sender: "bot", text: "⚠ Oops! Something went wrong. Try again later." },
+      ]);
     } finally {
       setLoading(false);
     }
   };
 
-  const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>): void => {
+  const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") sendMessage();
   };
 
@@ -103,10 +94,11 @@ const Chatbot = () => {
         💬
       </div>
 
-      {/* Chatbot Popup */}
+      {/* Chatbot Window */}
       {showChatbot && (
-        <div className="fixed bottom-0 right-0 w-full max-w-md mx-auto h-[70vh] bg-slate-950 rounded-lg overflow-hidden z-50 border border-green-500 ">
-          <div className="flex items-center justify-between px-4 py-4 bg-white dark:bg-neutral-950 border border-green-500">
+        <div className="fixed bottom-0 right-0 w-full max-w-md h-[70vh] bg-slate-950 rounded-lg z-50 border border-green-500 flex flex-col overflow-hidden">
+          {/* Header */}
+          <div className="flex items-center justify-between px-4 py-4 bg-white dark:bg-neutral-950 border-b border-green-500">
             <div className="flex items-center gap-2">
               <img src={logo} alt="Bot Logo" className="h-8 w-8 rounded-full" />
               <span className="text-lg font-semibold text--700">
@@ -121,15 +113,14 @@ const Chatbot = () => {
             </div>
           </div>
 
-          {messages.length === 0 && (
-            <div className="text-center text-gray-600 text-base mt-4">
-              Hi there! 🌱 I'm AgriBot, your smart assistant 🌾.
-            </div>
-          )}
-
           {/* Messages */}
-          <div className="flex-1 px-4 py-4 overflow-y-auto">
+          <div className="flex-1 overflow-y-auto px-4 py-4">
             <div className="max-w-3xl mx-auto">
+              {messages.length === 0 && (
+                <div className="text-center text-gray-400 text-base mb-4">
+                  Hi there! 🌱 I'm AgriBot, your smart assistant 🌾.
+                </div>
+              )}
               {messages.map((msg, index) => (
                 <motion.div
                   key={index}
@@ -152,7 +143,7 @@ const Chatbot = () => {
                 </motion.div>
               ))}
               {loading && (
-                <div className="text-sm text-gray-500 flex items-center gap-2">
+                <div className="text-sm text-gray-400 flex items-center gap-2">
                   <Loader2 className="animate-spin" size={16} /> Thinking...
                 </div>
               )}
@@ -160,16 +151,16 @@ const Chatbot = () => {
             </div>
           </div>
 
-          {/* Input Field */}
-          <div className="w-full max-w-3xl mx-auto px-4 pb-4 sticky bottom-0">
-            <div className="flex items-center gap-2 bg-white border border-gray-300 rounded-full px-4 py-2 shadow-md">
+          {/* Sticky Input */}
+          <div className="w-full px-4 py-3 bg-slate-950 sticky bottom-0  border-gray-300">
+            <div className="flex items-center gap-2 border border-gray-300 rounded-full px-4 py-2 shadow-md">
               <input
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyPress}
                 placeholder="How can I assist you ....."
-                className="flex-1 text-black text-sm px-2 py-2 focus:outline-none"
+                className="flex-1 text-gray text-sm px-2 py-2 focus:outline-none"
               />
               <button
                 onClick={toggleListening}
@@ -196,4 +187,3 @@ const Chatbot = () => {
 };
 
 export default Chatbot;
- 

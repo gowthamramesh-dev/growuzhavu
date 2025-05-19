@@ -23,7 +23,7 @@ initial_prompt = types.Content(
 model_response = types.Content(
     role="model",
     parts=[
-        types.Part.from_text(text="""Understood. I'm Chitti, your Agri-Commerce assistant. 
+        types.Part.from_text(text="""Understood. I'm AgriChatbot, your Agri-Commerce assistant. 
 I’ll reply briefly and in the appropriate language. Let's begin! 😊""")
     ]
 )
@@ -91,7 +91,7 @@ def chatbot_response():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=8000, debug=True)
 
 
 

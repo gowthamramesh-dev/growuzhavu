@@ -1,12 +1,15 @@
-import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 
 const Editprofile = () => {
-  const { id } = useParams();
+  const storedId = localStorage.getItem("userid");
+  const id = storedId ? JSON.parse(storedId) : null;
+
   const mobile_otp = () => {
     const element = document.getElementById("otp-enter");
-    element?.classList.toggle("hidden");
+    if (element) {
+      element.classList.toggle("hidden");
+    }
   };
   const otpEnterElement = document.getElementById("otp-enter");
 
@@ -45,11 +48,36 @@ const Editprofile = () => {
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
+
+    // Check if at least one field (excluding 'author') is filled
+    const isAnyFieldFilled = Object.entries(data).some(
+      ([key, value]) => key !== "author" && value.trim() !== ""
+    );
+
+    if (!isAnyFieldFilled) {
+      alert("Please fill at least one field before submitting.");
+      return;
+    }
+
+    // Prepare only non-empty fields to send
+    const filteredData = Object.fromEntries(
+      Object.entries(data).filter(
+        ([key, value]) => key === "author" || value.trim() !== ""
+      )
+    );
+
     axios
-      .post(`http://localhost:5000/api/farmers/editProfile`, data)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+      .post("http://localhost:5000/api/farmers/editProfile", filteredData)
+      .then(() => {
+        alert("Profile updated successfully!");
+        location.reload();
+      })
+      .catch((err) => {
+        console.error(err);
+        alert("An error occurred while updating the profile.");
+      });
   };
+
   return (
     <>
       <div className="h-full *:p-3 *:bg-slate-950 *:border *:border-green-500 *:h-full">
