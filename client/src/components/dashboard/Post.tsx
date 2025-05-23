@@ -16,13 +16,13 @@ interface Post {
 
 const Post = () => {
   const storedId = localStorage.getItem("userid");
-  const id = storedId ? JSON.parse(storedId) : null;
+  const id = storedId;
   const [posts, setPosts] = useState<Post[]>([]);
   const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
     axios
-      .post(`http://localhost:5000/api/farmers/getPosts`, { id: id })
+      .post("http://localhost:5000/api/farmers/getPosts", { id: id })
       .then((result) => {
         setPosts(result.data);
       })

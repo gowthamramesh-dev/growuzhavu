@@ -9,7 +9,10 @@ from flask_cors import CORS
 # Set your API key
 Client = genai.Client(api_key="AIzaSyAEd1XbDBzG3FG86axAR1dWHWfqmXc7i-w")
 
-# Define the model
+# Define the model000
+
+P{00
+P"{
 model = "gemini-2.0-flash-thinking-exp-01-21"
 
 # Initial system/persona setup

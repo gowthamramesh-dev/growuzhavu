@@ -40,7 +40,7 @@ const Login = () => {
       const token = res.data.token;
       const expiryTime = new Date().getTime() + 7 * 24 * 60 * 60 * 1000;
 
-      localStorage.setItem("userid", res.data._id);
+      localStorage.setItem("userid", JSON.stringify(res.data._id));
       localStorage.setItem(TOKEN_KEY, token);
       localStorage.setItem(TOKEN_EXPIRY_KEY, expiryTime.toString());
 

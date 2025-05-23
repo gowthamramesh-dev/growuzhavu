@@ -117,7 +117,7 @@ const getPosts = async (req, res) => {
       .find({ author: id })
       .sort({ date: -1 });
     if (!posts || posts.length === 0)
-      return res.status(400).json({ msg: "No posts found" });
+      return res.status(404).json({ msg: "No posts found" });
 
     res.json(posts);
   } catch (err) {
@@ -130,11 +130,27 @@ const postDetails = async (req, res) => {
   const { id } = req.body;
 
   try {
-    const posts = await createPostsModel.find({ _id: id });
-    if (!posts || posts.length === 0)
+    const post = await createPostsModel.findById(id);
+    if (!post) {
       return res.status(400).json({ msg: "No posts found" });
+    }
 
-    res.json(posts);
+    const aut = await EditProfile.findOne({ author: post.author });
+    const far = await Farmer.findOne({ _id: post.author });
+
+    const data = {
+      author: post.author,
+      picture: post.picture,
+      commodityName: post.commodityName,
+      commodityPrice: post.commodityPrice,
+      commodityDescription: post.commodityDescription,
+      date: post.date,
+      time: post.time,
+      authpic: aut?.picture || "",
+      name: far?.username || "",
+    };
+
+    res.json(data);
   } catch (err) {
     console.error(err);
     res.status(500).json({ msg: "Server Error" });
@@ -223,13 +239,16 @@ const farmerDashboard = async (req, res) => {
   const { id } = req.body;
   try {
     const profileData = await EditProfile.findOne({ author: id });
+    const loginData = await Farmer.findById(id);
 
-    if (!profileData || profileData.length === 0)
-      return res.status(400).json({ msg: "No data found" });
+    if (!profileData && !loginData) {
+      return res.status(404).json({ msg: "No data found" });
+    }
 
-    res.json(profileData);
+    const result = profileData || loginData;
+    res.status(200).json(result);
   } catch (error) {
-    console.error(error);
+    console.error("Dashboard Error:", error);
     res.status(500).json({ msg: "Server Error" });
   }
 };

@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const Editprofile = () => {
   const storedId = localStorage.getItem("userid");
-  const id = storedId ? JSON.parse(storedId) : null;
+  const id = storedId;
 
   const mobile_otp = () => {
     const element = document.getElementById("otp-enter");
