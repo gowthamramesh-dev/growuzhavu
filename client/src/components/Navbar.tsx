@@ -2,7 +2,15 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const userid = localStorage.getItem("userid");
+  let userid = null;
+try {
+  const storedUser = localStorage.getItem("userid");
+  if (storedUser) {
+    userid = JSON.parse(storedUser);
+  }
+} catch (error) {
+  console.error("Error parsing user JSON:", error);
+}
   const handleNav = () => {
     const element = document.getElementById("nav");
     element?.classList.toggle("hidden");
