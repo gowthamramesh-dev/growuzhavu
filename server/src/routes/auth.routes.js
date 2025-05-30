@@ -67,5 +67,11 @@ router.post("/editProfile", editProfile);
 router.post("/postDetails", postDetails);
 router.get("/allPosts", allPosts);
 router.post("/farmerdata", farmerDashboard);
+// GET /api/farmers/posts
+router.get("/posts", async (req, res) => {
+  const posts = await PostModel.find(); // Use your real schema/model
+  res.json(posts);
+});
+
 
 module.exports = router;

@@ -22,6 +22,7 @@ app.use("/api/farmers", authRoutes);
 app.use(errorHandler);
 app.use(notFound);
 
+
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../client/build")));
 
