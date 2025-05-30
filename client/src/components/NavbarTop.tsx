@@ -2,8 +2,38 @@ import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 import LanguageSelector from "./language-selector";
 import { useAuth } from "../contexts/AuthContexts";
+import { useEffect, useState } from "react";
+import axios from "axios";
+interface Post {
+  _id: string;
+  author: string;
+  picture: string;
+  commodityName: string;
+  commodityPrice: string;
+  commodityDescription: string;
+  date: string;
+  time: string;
+}
+
 
 const NavbarTop = () => {
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [searchTerm, setSearchTerm] = useState<string>("");
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/api/farmers/allPosts`)
+      .then((result) => {
+        setPosts(result.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  // Filter posts by search term
+  const filteredPosts = posts.filter((post) =>
+    post.commodityName.toLowerCase().includes(searchTerm.toLowerCase())
+
+  );
   const userid = localStorage.getItem("userid");
   const navigate = useNavigate();
   const { t } = useTranslation();
@@ -53,11 +83,14 @@ const NavbarTop = () => {
             ></i>
             {t("title")}
           </div>
-          <div className="h-full w-full lg:w-2/4 flex lg:justify-center justify-end items-center ">
+          <div className="h-full w-full lg:w-1/2 flex lg:justify-center justify-end items-center ">
             <input
               className="h-2/3 hidden w-2/3 lg:flex lg:w-full text-white  px-1 border border-green-500 outline-0"
               type="text"
               id="ser"
+              placeholder="Serach here....."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
             />
             <i
               className="bi bi-search text-md border h-2/3 px-2.5 flex justify-center items-center hover:cursor-pointer text-green-500"
@@ -122,6 +155,6 @@ const NavbarTop = () => {
       </div>
     </>
   );
-};
+};  
 
 export default NavbarTop;

@@ -14,6 +14,7 @@ import { useEffect, useState } from "react";
 import Post from "./dashboard/Post.tsx";
 import Progress from "./Progress.tsx";
 
+
 const TOKEN_KEY = "authToken";
 const TOKEN_EXPIRY_KEY = "authTokenExpiry";
 
@@ -57,6 +58,7 @@ const Index = () => {
               <Navbar />
             </div>
             <div className="w-full m-2 lg:ml-14 mt-20 lg:mt-18">
+            
               <Routes>
                 <Route
                   path="/signup"
@@ -76,6 +78,8 @@ const Index = () => {
                 <Route path="*" element={<Navigate to="/login" />} />
                 <Route path="/:id/history" element={<History />} />
                 <Route path="/:id/create-post" element={<PostCreation />} />
+                
+
               </Routes>
             </div>
             <Chatbot />
